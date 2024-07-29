@@ -1,0 +1,67 @@
+@import "reset";
+@import "variables";
+@import "functions";
+@import "fonts";
+
+body {
+  background-color: $bg-light-gray;
+  font-family: "Outfit", sans-serif;
+  font-size: rem($fs);
+}
+
+.container {
+  position: relative;
+  top: rem(85); /* 85px */
+  max-width: rem(320); /* 320px */
+  margin: 0 auto;
+}
+
+/* 375px */
+@media (min-width: rem(375)) {
+  .container {
+    top: rem(152); /* 152px */
+  }
+}
+
+.qr-code {
+  padding: rem(16); /* 16px */
+  padding-bottom: rem(40); /* 40px */
+  border-radius: 20px;
+  background-color: $bg-white;
+
+  &__display {
+    border-radius: 10px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: rem(16); /* 16px */
+    margin-top: rem(24); /* 24px */
+    text-align: center;
+
+    .title {
+      font-size: rem(22); /* 22px */
+      font-weight: $fw-title;
+      color: $fc-dark-blue;
+      margin: 0 rem(16); /* 16px */
+      margin-top: 0;
+    }
+
+    .summary {
+      font-weight: $fw-summary;
+      color: $fc-grayish-blue;
+      padding: 0 em(16); /* 16px */
+      margin: 0;
+    }
+  }
+}
