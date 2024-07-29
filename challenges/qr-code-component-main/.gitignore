@@ -17,3 +17,6 @@
 
 # Content of public folder should not be uploaded
 public/
+
+node_modules/
+package-lock.json
