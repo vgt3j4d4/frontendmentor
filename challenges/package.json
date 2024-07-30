@@ -1,0 +1,8 @@
+{
+  "name": "challenges",
+  "version": "1.0.0",
+  "description": "Loops through subfolders looking for package.json files and executes 'npm run dist' on each",
+  "scripts": {
+    "dist": "node index.js"
+  }
+}
