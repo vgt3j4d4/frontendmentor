@@ -4,7 +4,7 @@
   "description": "Design preview for the QR code component coding challenge",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dist": "npx copyfiles index.html css/* images/* fonts/Outfit-VariableFont_wght.ttf ../../submissions/qr-code-component"
+    "dist": "npx copyfiles index.html css/* images/* fonts/Outfit-VariableFont_wght.ttf dist"
   },
   "devDependencies": {
     "copyfiles": "^2.4.1"
