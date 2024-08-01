@@ -1,8 +1,11 @@
 {
   "name": "challenges",
   "version": "1.0.0",
-  "description": "Loops through challenges subfolders looking for package.json to execute 'npm run dist' on each",
+  "description": "Loops through challenges subfolders looking for package.json to execute 'npm run dist' on each. After that copies the content of /dist folder to the root of the project.",
   "scripts": {
     "dist": "node index.js"
+  },
+  "devDependencies": {
+    "copyfiles": "^2.4.1"
   }
 }
