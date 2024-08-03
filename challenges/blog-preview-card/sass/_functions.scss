@@ -1,0 +1,19 @@
+@use "sass:math";
+
+$default-font-size: 16;
+
+@function rem($pixel) {
+  @if math.is-unitless($pixel) {
+    @return math.div($pixel, $default-font-size) + rem;
+  } @else {
+    @error 'Don\'t use units when using the rem() function; only numbers.';
+  }
+}
+
+@function em($pixel) {
+  @if math.is-unitless($pixel) {
+    @return math.div($pixel, $default-font-size) + em;
+  } @else {
+    @error 'Don\'t use units when using the em() function; only numbers.';
+  }
+}
