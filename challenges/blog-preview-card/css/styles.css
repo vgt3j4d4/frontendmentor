@@ -88,13 +88,18 @@ body {
   font-size: 0.875em;
 }
 .card__content__title {
-  display: block;
-  color: hsl(0, 0%, 7%);
+  margin: 0;
   font-family: "FigtreeExtraBold", system-ui;
   font-size: 1.5em;
-  text-decoration: none;
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+.card__content__title a {
+  color: hsl(0, 0%, 7%);
+  text-decoration: none;
   transition: color 0.5s ease-in-out;
+}
+.card__content__title a:hover, .card__content__title a:active {
+  color: hsl(47, 88%, 63%);
 }
 .card__content__description {
   margin: 0;
@@ -115,9 +120,6 @@ body {
 }
 .card:hover {
   box-shadow: 16px 16px #000;
-}
-.card:hover .card__content__title {
-  color: hsl(47, 88%, 63%);
 }
 
 @media screen and (max-width: 23.4375rem) {
