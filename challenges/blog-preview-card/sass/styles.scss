@@ -57,13 +57,20 @@ body {
     }
 
     &__title {
-      display: block;
-      color: $fc-gray-950;
+      margin: 0;
       font-family: "FigtreeExtraBold", system-ui;
       font-size: em(24);
-      text-decoration: none;
       text-shadow: 0 4px 4px $card-title-box-shador-color;
-      transition: color 0.5s ease-in-out;
+
+      a {
+        color: $fc-gray-950;
+        text-decoration: none;
+        transition: color 0.5s ease-in-out;
+        &:hover,
+        &:active {
+          color: $fc-yellow;
+        }
+      }
     }
 
     &__description {
@@ -91,9 +98,9 @@ body {
   &:hover {
     box-shadow: 16px 16px $black;
 
-    .card__content__title {
-      color: $fc-yellow;
-    }
+    // .card__content__title a {
+    //   color: $fc-yellow;
+    // }
   }
 }
 
