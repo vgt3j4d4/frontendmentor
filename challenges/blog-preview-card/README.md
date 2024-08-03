@@ -4,8 +4,8 @@
 
 ![](./screenshot.png)
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Add solution URL here](https://github.com/vgt3j4d4/frontendmentor/tree/main/challenges/blog-preview-card)
+- Live Site URL: [Add live site URL here](https://frontendmentor-gonzalotejada.netlify.app/blog-preview-card/)
 
 ## My process
 
