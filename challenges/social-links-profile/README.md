@@ -32,8 +32,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Social Links Profile](https://github.com/vgt3j4d4/frontendmentor/tree/main/challenges/social-links-profile)
+- Live Site URL: [Social Links Profile](https://frontendmentor-gonzalotejada.netlify.app/social-links-profile/)
 
 ## My process
 
