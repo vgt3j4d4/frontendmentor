@@ -10,14 +10,21 @@
       defer
     />
   </head>
-  <body>
+  <body class="container">
     <main>
-      <h1>Frontend Mentor Challenges</h1>
-      <ul>
+      <header class="header">
+        <h1>Frontend Mentor Challenges</h1>
+      </header>
+      <ol>
         {{#each challengeUrls}}
-          <li><a href="/{{this.url}}">{{this.label}}</a></li>
+          <li><a href="/{{this.url}}" class="contrast" target="_blank">{{this.label}}</a></li>
         {{/each}}
-      </ul>
+      </ol>
     </main>
+    <footer class="footer">
+      <p>
+        Made by <a href="https://www.frontendmentor.io/profile/vgt3j4d4" target="_blank">Gonzalo Tejada</a>
+      </p>
+    </footer>
   </body>
 </html>
