@@ -1,0 +1,26 @@
+@import "variables";
+@import "functions";
+
+@mixin base-text-preset {
+  letter-spacing: 0;
+  line-height: 150%;
+}
+
+@mixin text-preset-1 {
+  @include base-text-preset;
+  font-family: "Inter SemiBold", sans-serif, system-ui;
+  font-size: rem(24);
+}
+
+@mixin text-preset-2 {
+  @include base-text-preset;
+  font-family: "Inter Regular", sans-serif, system-ui;
+  font-size: rem(14);
+}
+
+@mixin text-preset-2-bold {
+  @include base-text-preset;
+  font-family: "Inter Bold", sans-serif, system-ui;
+  font-size: rem(14);
+  font-weight: bold;
+}

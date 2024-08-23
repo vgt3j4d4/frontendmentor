@@ -1,0 +1,11 @@
+{
+  "name": "social-links-profile",
+  "version": "1.0.0",
+  "description": "Design preview for the Social links profile coding challenge",
+  "scripts": {
+    "dist": "npx copyfiles index.html css/* images/* fonts/* dist"
+  },
+  "devDependencies": {
+    "copyfiles": "^2.4.1"
+  }
+}

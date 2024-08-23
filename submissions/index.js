@@ -5,24 +5,12 @@ const cp = require("child_process");
 const npmCmd = platform().startsWith("win") ? "npm.cmd" : "npm";
 const challengesPath = "../challenges";
 const copyFiles = require("copyfiles");
-
-const indexHtml = `<!DOCTYPE html>
-<html>
-<head>
-  <meta charset='utf-8'>
-  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-  <title>Frontend Mentor Challenges</title>
-  <meta name='viewport' content='width=device-width, initial-scale=1'>
-</head>
-<body>
-  <h1>Frontend Mentor Challenges</h1>
-  <ul>{{placeholder}}</ul>
-</body>
-</html>`;
+const handlebars = require("handlebars");
 
 let filePath,
   generatedDistFolderPath,
   urls = [];
+
 console.log("Building all challenges...");
 fs.readdirSync(challengesPath, { withFileTypes: true }).forEach((file) => {
   if (file.isDirectory()) {
@@ -37,6 +25,7 @@ fs.readdirSync(challengesPath, { withFileTypes: true }).forEach((file) => {
       });
     }
     generatedDistFolderPath = join(filePath, "dist", "/**/*");
+
     console.log(
       "Copying files from " + generatedDistFolderPath + " to " + __dirname
     );
@@ -49,20 +38,29 @@ fs.readdirSync(challengesPath, { withFileTypes: true }).forEach((file) => {
     );
     urls.push(file.name);
   }
+
   if (urls.length > 0) {
-    links = [];
+    challengeUrls = [];
     urls.map((url) => {
       const label = url
         .replace(/\-/g, " ")
         .split(" ")
         .map((word) => word[0].toUpperCase() + word.slice(1))
         .join(" ");
-      links.push(`<li><a href="/${url}">${label}</a></li>`);
+      challengeUrls.push({ url, label });
     });
-    const indexHtmlContent = indexHtml.replace(
-      "{{placeholder}}",
-      links.join("")
+
+    console.log("Generating index.html");
+    const indexTemplate = fs.readFileSync(
+      join(__dirname, "index.template.html"),
+      "utf8"
     );
+    handlebars.parse(indexTemplate);
+    const indexHtmlContent = handlebars.compile(indexTemplate)({
+      challengeUrls,
+    });
     fs.writeFileSync(join(__dirname, "index.html"), indexHtmlContent);
+
+    console.log("All challenges built successfully");
   }
 });

@@ -1,0 +1,102 @@
+@import "reset";
+@import "variables";
+@import "functions";
+@import "mixins";
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: $fs;
+  background-color: $bg-body;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: rem(24);
+  width: 100%;
+  max-width: rem(327);
+  padding: rem(40);
+  border-radius: 12px;
+  background-color: $bg-card;
+  font-family: "Inter Bold", system-ui, sans-serif;
+  text-align: center;
+  color: $color-white;
+
+  &__pic {
+    width: rem(88);
+    height: rem(88);
+    border-radius: 100%;
+  }
+
+  &__name-location {
+    &__title {
+      @include text-preset-1;
+      margin: 0;
+      padding-bottom: rem(4);
+    }
+
+    &__description {
+      @include text-preset-2-bold;
+      margin: 0;
+      color: $color-green;
+    }
+  }
+
+  &__bio {
+    @include text-preset-2;
+    margin: 0;
+
+    &:before,
+    &:after {
+      content: '"';
+    }
+  }
+
+  &__social-links {
+    width: 100%;
+    @include text-preset-2-bold;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: rem(16);
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    a {
+      display: block;
+      color: $color-white;
+      text-decoration: none;
+      padding: rem(12) 0;
+      border-radius: 8px;
+      background-color: $bg-button;
+      transition: color 0.1s ease-in-out, background-color 0.1s ease-in-out;
+
+      &:focus,
+      &:hover {
+        color: $bg-button;
+        background-color: $color-green;
+      }
+    }
+  }
+}
+
+/** Tablet */
+@media (width >= rem(768)) {
+  .card {
+    max-width: rem(456);
+  }
+}
+
+/** Desktop */
+@media (width >= rem(1440)) {
+  .card {
+    max-width: rem(384);
+  }
+}
