@@ -27,9 +27,14 @@ body {
   color: $color-white;
 
   &__pic {
-    width: rem(88);
-    height: rem(88);
     border-radius: 100%;
+    overflow: hidden;
+    > img {
+      display: block;
+      width: rem(88);
+      height: rem(88);
+      object-fit: cover;
+    }
   }
 
   &__name-location {
