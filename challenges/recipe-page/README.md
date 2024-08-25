@@ -16,8 +16,6 @@ This is a solution to the [Recipe page challenge on Frontend Mentor](https://www
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
-
 ## Overview
 
 ### Screenshot
@@ -28,8 +26,8 @@ This is a solution to the [Recipe page challenge on Frontend Mentor](https://www
 
 ### Links
 
-- Solution URL: [Social Links Profile](https://github.com/vgt3j4d4/frontendmentor/tree/main/challenges/recipe-page)
-- Live Site URL: [Social Links Profile](https://frontendmentor-gonzalotejada.netlify.app/recipe-page)
+- Solution URL: [Recipe Page](https://github.com/vgt3j4d4/frontendmentor/tree/main/challenges/recipe-page)
+- Live Site URL: [Recipe Page](https://frontendmentor-gonzalotejada.netlify.app/recipe-page)
 
 ## My process
 
