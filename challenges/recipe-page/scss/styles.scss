@@ -1,0 +1,198 @@
+@import "reset";
+@import "variables";
+@import "fonts";
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  font-size: $fs;
+  background-color: $color-stone-100;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: rem(32);
+  padding: rem(40) rem(32);
+  background-color: $color-white;
+}
+
+.banner {
+  display: block;
+  overflow: hidden;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  gap: rem(24);
+
+  h1 {
+    @include text-preset-1;
+    color: $color-stone-900;
+  }
+
+  p {
+    @include text-preset-4;
+    color: $color-stone-600;
+  }
+}
+
+section {
+  h2 {
+    @include text-preset-2;
+    color: $color-brown-800;
+  }
+
+  p {
+    @include text-preset-4;
+    color: $color-stone-600;
+  }
+
+  strong {
+    @include text-preset-4-bold;
+    color: $color-stone-600;
+  }
+
+  ul,
+  ol {
+    padding-top: rem(24);
+    padding-left: rem(32);
+    margin: 0;
+
+    li {
+      padding-left: rem(16);
+      padding-bottom: rem(8);
+      @include text-preset-4;
+      color: $color-stone-600;
+
+      &:last-child {
+        padding-bottom: 0;
+      }
+
+      &::marker {
+        color: $color-brown-800;
+      }
+    }
+  }
+
+  ol li::marker {
+    padding-left: rem(8);
+    @include text-preset-4-bold;
+  }
+}
+
+.preparation-time {
+  padding: rem(24);
+  @include text-preset-4;
+
+  h3 {
+    @include text-preset-3;
+    color: $color-rose-800;
+  }
+
+  ul {
+    padding-top: rem(16);
+  }
+}
+
+.nutrition {
+  display: flex;
+  flex-direction: column;
+  gap: rem(24);
+  @include text-preset-4;
+  color: $color-stone-600;
+
+  table {
+    width: 100%;
+    border-collapse: collapse; // sets whether cells inside a <table> have shared or separate borders.
+
+    tr {
+      border-bottom: 1px solid $color-stone-150;
+      &:last-child {
+        border-bottom: 0;
+      }
+
+      td {
+        height: rem(32);
+        vertical-align: middle;
+
+        &:nth-child(odd) {
+          padding-left: rem(32);
+          padding-right: rem(8);
+        }
+
+        &:nth-child(even) {
+          padding-right: rem(32);
+          padding-left: rem(8);
+          @include text-preset-4-bold;
+          color: $color-brown-800;
+        }
+      }
+    }
+  }
+}
+
+hr {
+  width: 100%;
+  height: rem(1);
+  margin: 0;
+  border: 0;
+  background-color: $color-stone-150;
+}
+
+/** Mobile */
+@media (width < rem(768)) {
+  .banner:not(.mobile-banner) {
+    display: none;
+  }
+}
+
+/** Tablet */
+@media (width >= rem(768)) {
+  body {
+    padding: rem(128) 0;
+  }
+
+  .banner.mobile-banner {
+    display: none;
+  }
+
+  main {
+    max-width: rem(616);
+    padding: rem(40);
+    border-radius: 24px;
+  }
+
+  .banner {
+    max-width: rem(536);
+    max-height: rem(300);
+    border-radius: 12px;
+
+    &.mobile-banner {
+      display: none;
+    }
+  }
+}
+
+/** Desktop */
+@media (width >= rem(1440)) {
+  main {
+    max-width: rem(736);
+  }
+
+  .banner {
+    max-width: rem(656);
+  }
+}

@@ -1,0 +1,38 @@
+@use "sass:math";
+
+$fs-value: 16;
+$fs: $fs-value + px;
+
+@function rem($pixel) {
+  @if math.is-unitless($pixel) {
+    @return math.div($pixel, $fs-value) + rem;
+  } @else {
+    @error 'Don\'t use units when using the rem() function; only numbers.';
+  }
+}
+
+@function em($pixel) {
+  @if math.is-unitless($pixel) {
+    @return math.div($pixel, $fs-value) + em;
+  } @else {
+    @error 'Don\'t use units when using the em() function; only numbers.';
+  }
+}
+
+$color-white: hsl(0, 0%, 100%);
+$color-stone-100: hsl(30, 54%, 90%);
+$color-stone-150: hsl(30, 18%, 87%);
+$color-stone-600: hsl(30, 10%, 34%);
+$color-stone-900: hsl(24, 5%, 18%);
+$color-brown-800: hsl(14, 45%, 36%);
+$color-rose-800: hsl(332, 51%, 32%);
+$color-rose-50: hsl(330, 100%, 98%);
+
+$spacing-1600: rem(128);
+$spacing-600: rem(48);
+$spacing-500: rem(40);
+$spacing-400: rem(32);
+$spacing-300: rem(24);
+$spacing-200: rem(16);
+$spacing-150: rem(12);
+$spacing-100: rem(8);

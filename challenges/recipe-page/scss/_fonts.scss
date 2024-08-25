@@ -1,0 +1,56 @@
+@import "variables";
+
+@font-face {
+  font-family: "Young Serif Regular";
+  src: url("../fonts/YoungSerif-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Outfit Regular";
+  src: url("../fonts/Outfit-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Outfit SemiBold";
+  src: url("../fonts/Outfit-SemiBold.ttf");
+}
+
+@font-face {
+  font-family: "Outfit Bold";
+  src: url("../fonts/Outfit-Bold.ttf");
+}
+
+@mixin text-preset-1 {
+  font-family: "Young Serif Regular", system-ui, sans-serif;
+  font-size: rem(40);
+  line-height: 100%;
+  letter-spacing: 0;
+}
+
+@mixin text-preset-2 {
+  font-family: "Young Serif Regular", system-ui, sans-serif;
+  font-size: rem(28);
+  line-height: 100%;
+  letter-spacing: 0;
+}
+
+@mixin text-preset-3 {
+  font-family: "Outfit SemiBold", system-ui, sans-serif;
+  font-size: rem(20);
+  line-height: 100%;
+  letter-spacing: 0;
+}
+
+@mixin text-preset-4 {
+  font-family: "Outfit Regular", system-ui, sans-serif;
+  font-size: rem(16);
+  line-height: 150%;
+  letter-spacing: 0;
+}
+
+@mixin text-preset-4-bold {
+  font-family: "Outfit Bold", system-ui, sans-serif;
+  font-size: rem(16);
+  line-height: 150%;
+  letter-spacing: 0;
+}
