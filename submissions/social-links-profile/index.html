@@ -16,18 +16,16 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <div class="card">
-      <img
-        class="card__pic"
-        src="./images/avatar-jessica.jpeg"
-        alt="Jessica profile picture"
-      />
+    <main class="card">
+      <picture class="card__pic">
+        <img src="./images/avatar-jessica.jpeg" alt="Jessica profile picture" />
+      </picture>
       <div class="card__name-location">
         <h1 class="card__name-location__title">Jessica Randall</h1>
         <p class="card__name-location__description">London, United Kingdom</p>
       </div>
       <p class="card__bio">Front-end developer and avid reader.</p>
-      <nav class="card__social-links">
+      <nav role="navigation" class="card__social-links">
         <ul>
           <li><a href="#">GitHub</a></li>
           <li><a href="#">Frontend Mentor</a></li>
@@ -36,6 +34,6 @@
           <li><a href="#">Instagram</a></li>
         </ul>
       </nav>
-    </div>
+    </main>
   </body>
 </html>
