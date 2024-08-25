@@ -53,9 +53,14 @@ body {
   color: hsl(0, 0%, 100%);
 }
 .card__pic {
+  border-radius: 100%;
+  overflow: hidden;
+}
+.card__pic > img {
+  display: block;
   width: 5.5rem;
   height: 5.5rem;
-  border-radius: 100%;
+  object-fit: cover;
 }
 .card__name-location__title {
   letter-spacing: 0;
