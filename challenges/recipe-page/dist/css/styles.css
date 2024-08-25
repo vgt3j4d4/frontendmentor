@@ -159,7 +159,7 @@ section ol li::marker {
   line-height: 150%;
   letter-spacing: 0;
 }
-.preparation-time h3 {
+.preparation-time h2 {
   font-family: "Outfit SemiBold", system-ui, sans-serif;
   font-size: 1.25rem;
   line-height: 100%;

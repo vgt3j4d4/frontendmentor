@@ -97,7 +97,7 @@ section {
   padding: rem(24);
   @include text-preset-4;
 
-  h3 {
+  h2 {
     @include text-preset-3;
     color: $color-rose-800;
   }
