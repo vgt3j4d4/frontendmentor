@@ -1,43 +1,43 @@
 @import "reset";
 @import "variables";
-@import "functions";
 @import "fonts";
 
 body {
-  background-color: $bg-light-gray;
+  background-color: $color-slate-300;
   font-family: "Outfit", sans-serif;
-  font-size: rem($fs);
+  font-size: $fs;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100dvh;
 }
 
 .container {
-  position: relative;
-  top: rem(85); /* 85px */
-  max-width: rem(320); /* 320px */
-  margin: 0 auto;
-}
-
-/* 375px */
-@media (min-width: rem(375)) {
-  .container {
-    top: rem(152); /* 152px */
-  }
+  max-width: rem(320);
 }
 
 .qr-code {
-  padding: rem(16); /* 16px */
-  padding-bottom: rem(40); /* 40px */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-300;
+  padding: $spacing-200;
+  padding-bottom: $spacing-500;
   border-radius: 20px;
-  background-color: $bg-white;
+  background-color: $color-white;
 
   &__display {
     border-radius: 10px;
     overflow: hidden;
 
     img {
+      display: block;
       width: 100%;
       height: 100%;
       object-fit: contain;
-      display: block;
     }
   }
 
@@ -45,22 +45,20 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: rem(16); /* 16px */
-    margin-top: rem(24); /* 24px */
+    gap: $spacing-200;
     text-align: center;
 
     .title {
-      font-size: rem(22); /* 22px */
-      font-weight: $fw-title;
-      color: $fc-dark-blue;
-      margin: 0 rem(16); /* 16px */
+      @include text-preset-1;
+      color: $color-slate-900;
+      margin: 0 $spacing-200;
       margin-top: 0;
     }
 
     .summary {
-      font-weight: $fw-summary;
-      color: $fc-grayish-blue;
-      padding: 0 em(16); /* 16px */
+      @include text-preset-2;
+      color: $color-slate-500;
+      padding: 0 $spacing-200;
       margin: 0;
     }
   }
