@@ -1,0 +1,40 @@
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat-VariableFont_wght.ttf");
+  font-weight: 500 700;
+}
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+  font-weight: 700;
+}
+
+@mixin text-display {
+  font-family: "Fraunces", sans-serif, system-ui;
+  font-size: rem(32);
+  font-weight: 700; // Bold
+  line-height: rem(32);
+  letter-spacing: 0;
+}
+
+@mixin text-body {
+  font-family: "Montserrat", sans-serif, system-ui;
+  font-size: rem(14);
+  font-weight: 500; // Medium
+  line-height: rem(23);
+  letter-spacing: 0;
+}
+
+@mixin text-button {
+  font-family: "Montserrat", sans-serif, system-ui;
+  font-size: rem(14);
+  font-weight: 700; // Bold
+}
+
+@mixin text-overline {
+  font-family: "Montserrat", sans-serif, system-ui;
+  font-size: rem(12);
+  font-weight: 500; // Medium
+  letter-spacing: rem(5);
+}
