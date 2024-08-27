@@ -51,6 +51,18 @@ body {
   background-color: #f2eae2;
 }
 
+.visually-hidden, .card__content .price s::before, .card__content .price s::after {
+  display: none;
+}
+
+.icon {
+  width: 0.9375rem;
+  height: 1rem;
+}
+.icon.icon-cart {
+  background-image: url("../images/icon-cart.svg");
+}
+
 .card {
   display: flex;
   flex-direction: column;
@@ -58,6 +70,9 @@ body {
   border-radius: 10px;
   background-color: #fff;
   overflow: hidden;
+}
+.card picture {
+  display: block;
 }
 .card picture img {
   display: block;
@@ -68,7 +83,7 @@ body {
 .card__content {
   padding: 1.5rem;
 }
-.card__content header span {
+.card__content hgroup span {
   font-family: "Montserrat", sans-serif, system-ui;
   font-size: 0.75rem;
   font-weight: 500;
@@ -76,7 +91,7 @@ body {
   color: #6c7289;
   text-transform: uppercase;
 }
-.card__content header h1 {
+.card__content hgroup h1 {
   font-family: "Fraunces", sans-serif, system-ui;
   font-size: 2rem;
   font-weight: 700;
@@ -102,7 +117,7 @@ body {
   letter-spacing: 0;
   color: #3d8168;
 }
-.card__content .price sup {
+.card__content .price s {
   padding: 0 0 0.0625rem 1.1875rem;
   color: #6c7289;
   font-family: "Montserrat", sans-serif, system-ui;
@@ -110,7 +125,12 @@ body {
   font-weight: 500;
   letter-spacing: 0;
   vertical-align: top;
-  text-decoration: line-through;
+}
+.card__content .price s::before {
+  content: " [strike-through start] ";
+}
+.card__content .price s::after {
+  content: " [strike-through end] ";
 }
 .card__content .add-to-cart {
   display: flex;
@@ -130,14 +150,6 @@ body {
 }
 .card__content .add-to-cart:hover {
   background-color: #1a4032;
-}
-
-.icon {
-  width: 0.9375rem;
-  height: 1rem;
-}
-.icon.icon-cart {
-  background-image: url("../images/icon-cart.svg");
 }
 
 @media (width > 37.5rem) {
