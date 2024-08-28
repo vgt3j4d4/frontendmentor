@@ -191,7 +191,7 @@ section ol li::marker {
   border-bottom: 0;
 }
 .nutrition table tr td {
-  height: 2rem;
+  padding: 0.75rem 0;
   vertical-align: middle;
 }
 .nutrition table tr td:nth-child(odd) {
@@ -246,7 +246,7 @@ hr {
   }
 }
 /** Desktop */
-@media (width >= 90rem) {
+@media (width >= 87.5rem) {
   main {
     max-width: 46rem;
   }

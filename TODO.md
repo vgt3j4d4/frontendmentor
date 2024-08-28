@@ -1,2 +1,2 @@
-[ ] Check why the product-preview-card has some weird glitches while loading the images in netlify
-[ ] Fix recipe-page challenge table
+- [X] Check why the product-preview-card has some weird glitches while loading the images in netlify  
+- [X] Fix recipe-page challenge table  

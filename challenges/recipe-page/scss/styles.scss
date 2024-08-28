@@ -1,6 +1,7 @@
 @import "reset";
 @import "variables";
 @import "fonts";
+@import "breakpoints";
 
 body {
   display: flex;
@@ -125,7 +126,7 @@ section {
       }
 
       td {
-        height: rem(32);
+        padding: rem(12) 0;
         vertical-align: middle;
 
         &:nth-child(odd) {
@@ -188,7 +189,7 @@ hr {
 }
 
 /** Desktop */
-@media (width >= rem(1440)) {
+@include breakpoint(desktop) {
   main {
     max-width: rem(736);
   }
