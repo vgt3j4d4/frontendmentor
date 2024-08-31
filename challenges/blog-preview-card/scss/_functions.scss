@@ -1,10 +1,9 @@
 @use "sass:math";
-
-$default-font-size: 16;
+@import "variables";
 
 @function rem($pixel) {
   @if math.is-unitless($pixel) {
-    @return math.div($pixel, $default-font-size) + rem;
+    @return math.div($pixel, $fs-base) + rem;
   } @else {
     @error 'Don\'t use units when using the rem() function; only numbers.';
   }
@@ -12,7 +11,7 @@ $default-font-size: 16;
 
 @function em($pixel) {
   @if math.is-unitless($pixel) {
-    @return math.div($pixel, $default-font-size) + em;
+    @return math.div($pixel, $fs-base) + em;
   } @else {
     @error 'Don\'t use units when using the em() function; only numbers.';
   }

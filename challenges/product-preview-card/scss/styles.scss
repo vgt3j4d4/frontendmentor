@@ -48,18 +48,18 @@ body {
 
     hgroup {
       display: flex;
-      flex-direction: column;
+      flex-direction: column-reverse;
       gap: rem(12);
-
-      span {
-        @include text-overline;
-        color: $color-aurometal-saurus;
-        text-transform: uppercase;
-      }
 
       h1 {
         @include text-display;
         color: $color-gun-metal;
+      }
+
+      h2 {
+        @include text-overline;
+        color: $color-aurometal-saurus;
+        text-transform: uppercase;
       }
     }
 
@@ -83,7 +83,7 @@ body {
         letter-spacing: 0;
         vertical-align: top;
 
-        // Taken from https://fedmentor.dev/posts/html-plan-product-preview/#prices
+        /** Taken from https://fedmentor.dev/posts/html-plan-product-preview/#prices */
         &::before,
         &::after {
           @extend .visually-hidden;
@@ -95,6 +95,7 @@ body {
         &::after {
           content: " [strike-through end] ";
         }
+        /****************************************************************************/
       }
     }
 
@@ -117,8 +118,6 @@ body {
       }
     }
   }
-
-  // TODO: check why figma adds a "padding-bottom" to every text element
 }
 
 @media (width > rem(600)) {
@@ -133,7 +132,7 @@ body {
 
     &__content {
       padding: rem(32);
-      max-width: rem(300); // 50% of the width
+      max-width: 50%;
 
       hgroup {
         gap: rem(20);

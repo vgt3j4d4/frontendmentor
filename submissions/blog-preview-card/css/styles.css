@@ -32,14 +32,18 @@ p {
 @font-face {
   font-family: "FigtreeMedium";
   src: url("../fonts/Figtree-Medium.ttf");
-  font-weight: 100 900;
+  font-weight: 100;
 }
 @font-face {
   font-family: "FigtreeExtraBold";
   src: url("../fonts/Figtree-ExtraBold.ttf");
-  font-weight: 100 900;
+  font-weight: 900;
 }
 body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
   font-family: "FigtreeMedium", system-ui;
   line-height: 150%;
   letter-spacing: 0;
@@ -51,10 +55,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  position: relative;
-  top: 13.6875rem;
   max-width: 24rem;
-  margin: 0 auto;
   padding: 1.5rem;
   background-color: hsl(0, 0%, 100%);
   border: 1px solid #000;
@@ -113,6 +114,7 @@ body {
 .card__author__avatar {
   width: 2rem;
   height: 2rem;
+  filter: grayscale(100%);
 }
 .card__author__name {
   font-size: 0.875em;
