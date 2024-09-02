@@ -216,13 +216,11 @@ hr {
   background-color: hsl(30, 18%, 87%);
 }
 
-/** Mobile */
 @media (width < 48rem) {
   .banner:not(.mobile-banner) {
     display: none;
   }
 }
-/** Tablet */
 @media (width >= 48rem) {
   body {
     padding: 8rem 0;
@@ -245,7 +243,6 @@ hr {
     display: none;
   }
 }
-/** Desktop */
 @media (width >= 87.5rem) {
   main {
     max-width: 46rem;

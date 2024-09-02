@@ -153,15 +153,13 @@ hr {
   background-color: $color-stone-150;
 }
 
-/** Mobile */
-@media (width < rem(768)) {
+@include breakpoint(mobile) {
   .banner:not(.mobile-banner) {
     display: none;
   }
 }
 
-/** Tablet */
-@media (width >= rem(768)) {
+@include breakpoint(tablet) {
   body {
     padding: rem(128) 0;
   }
@@ -188,7 +186,6 @@ hr {
   }
 }
 
-/** Desktop */
 @include breakpoint(desktop) {
   main {
     max-width: rem(736);

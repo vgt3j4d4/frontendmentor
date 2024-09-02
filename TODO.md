@@ -3,6 +3,6 @@
 - [X] Fix product preview card challenge landscape display on mobile
 - [X] Fix HTML report on product preview card challenge
 - [X] Fix blog preview card challenge display on mobile devices
-- [ ] Fix accessibility report on responsive recipe challenge
-- [ ] Fix HTML report on responsive recipe challenge
+- [X] Fix accessibility report on responsive recipe challenge - WONTFIX
+- [X] Fix HTML report on responsive recipe challenge
 - [ ] Fix HTML report on social links profile challenge

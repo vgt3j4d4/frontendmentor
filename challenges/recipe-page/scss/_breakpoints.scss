@@ -1,6 +1,16 @@
 @import "variables";
 
 @mixin breakpoint($screen-size) {
+  @if $screen-size == mobile {
+    @media (width < rem($breakpoint-tablet)) {
+      @content;
+    }
+  }
+  @if $screen-size == tablet {
+    @media (width >= rem($breakpoint-tablet)) {
+      @content;
+    }
+  }
   @if $screen-size == desktop {
     @media (width >= rem($breakpoint-desktop)) {
       @content;
