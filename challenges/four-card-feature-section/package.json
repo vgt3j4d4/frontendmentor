@@ -1,0 +1,11 @@
+{
+  "name": "four-card-feature-section",
+  "version": "1.0.0",
+  "description": "Four card feature section coding challenge",
+  "scripts": {
+    "dist": "npx copyfiles index.html css/* images/* fonts/* dist"
+  },
+  "dependencies": {
+    "copyfiles": "^2.4.1"
+  }
+}

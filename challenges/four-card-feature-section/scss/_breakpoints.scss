@@ -1,0 +1,10 @@
+@import "variables";
+@import "functions";
+
+@mixin breakpoint($screen-size) {
+  @if $screen-size == desktop {
+    @media (width >= rem($breakpoint-desktop)) {
+      @content;
+    }
+  }
+}

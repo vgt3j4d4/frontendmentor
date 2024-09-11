@@ -1,0 +1,202 @@
+/*** CSS Reset ***/
+* {
+  min-width: 0;
+  font: inherit;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: pretty;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  text-wrap: pretty;
+  margin: 0;
+  padding: 0;
+}
+
+/*** CSS Reset ***/
+/** 
+  Box shadow colors were calculated using Figma plugin
+  https://www.figma.com/community/plugin/1374511779922909714/figma-drop-and-inner-shadow-to-css-box-shadow
+*/
+/** 
+  Box shadow colors were calculated using Figma plugin
+  https://www.figma.com/community/plugin/1374511779922909714/figma-drop-and-inner-shadow-to-css-box-shadow
+*/
+/** 
+  Box shadow colors were calculated using Figma plugin
+  https://www.figma.com/community/plugin/1374511779922909714/figma-drop-and-inner-shadow-to-css-box-shadow
+*/
+@font-face {
+  font-family: "Poppins ExtraLight";
+  src: url("../fonts/Poppins-ExtraLight.ttf");
+  font-weight: 200;
+}
+@font-face {
+  font-family: "Poppins Regular";
+  src: url("../fonts/Poppins-Regular.ttf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Poppins SemiBold";
+  src: url("../fonts/Poppins-SemiBold.ttf");
+  font-weight: 600;
+}
+/** 
+  Box shadow colors were calculated using Figma plugin
+  https://www.figma.com/community/plugin/1374511779922909714/figma-drop-and-inner-shadow-to-css-box-shadow
+*/
+/** 
+  Box shadow colors were calculated using Figma plugin
+  https://www.figma.com/community/plugin/1374511779922909714/figma-drop-and-inner-shadow-to-css-box-shadow
+*/
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100dvh;
+  font-size: 16px;
+  color: hsl(234, 12%, 34%);
+}
+
+main {
+  padding-bottom: 5rem;
+}
+
+.header {
+  width: 19.4375rem;
+  margin: 5.3125rem 2rem 4.75rem 2rem;
+  padding: 0 0.4375rem;
+  text-align: center;
+}
+.header .title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-family: "Poppins ExtraLight", sans-serif, system-ui;
+  letter-spacing: 0.17px;
+  text-align: initial;
+}
+.header .title em {
+  display: block;
+  font-family: "Poppins SemiBold", sans-serif, system-ui;
+}
+.header .powered-by {
+  font-family: "Poppins Regular", sans-serif, system-ui;
+  font-size: 0.9375rem;
+  line-height: 1.5625rem;
+  letter-spacing: 0.1px;
+  opacity: 0.5;
+}
+
+.features {
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  gap: 1.5625rem;
+}
+
+.feature {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  align-items: center;
+  width: 19.4375rem;
+  height: 13.875rem;
+  padding: 1.75rem 1.75rem;
+  padding-top: 1.6875rem;
+  border: 1px solid transparent;
+  border-top-width: 3.55px;
+  border-radius: 8px;
+  box-shadow: 0px 15px 30px -11px rgba(131, 166, 210, 0.5);
+}
+.feature h1 {
+  margin-bottom: 0.375rem;
+  font-family: "Poppins SemiBold", sans-serif, system-ui;
+  font-size: 1.25rem;
+}
+.feature p {
+  margin-bottom: 2.0625rem;
+  font-family: "Poppins Regular", sans-serif, system-ui;
+  font-size: 0.8125rem;
+  line-height: 1.4375rem;
+  letter-spacing: 0.09px;
+  opacity: 0.5;
+}
+.feature img {
+  display: block;
+  width: 3.5625rem;
+  height: 3.5625rem;
+  justify-self: end;
+}
+.feature.feature-supervisor {
+  border-top-color: hsl(180, 62%, 55%);
+}
+.feature.feature-team-builder {
+  border-top-color: hsl(0, 78%, 62%);
+}
+.feature.feature-karma {
+  border-top-color: hsl(34, 97%, 64%);
+}
+.feature.feature-calculator {
+  border-top-color: hsl(212, 86%, 64%);
+}
+
+@media (width >= 69.375rem) {
+  .header {
+    width: 33.75rem;
+  }
+  .header .title {
+    font-size: 2.25rem;
+    text-align: center;
+  }
+  .features {
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    gap: 1.875rem;
+  }
+  .feature {
+    width: 21.875rem;
+    height: 15.625rem;
+    padding: 2rem;
+    border-top-width: 4px;
+    box-shadow: 0px 15px 30px -11px rgba(131, 166, 210, 0.5);
+  }
+  .feature p {
+    margin-bottom: 2.5rem;
+  }
+  .feature img {
+    width: 3.75rem;
+    height: 3.75rem;
+  }
+  .feature-supervisor {
+    grid-column: 1;
+    grid-row: 1/-1;
+  }
+  .feature-team-builder {
+    grid-column: 2;
+  }
+  .feature-karma {
+    grid-column: 2;
+  }
+  .feature-calculator {
+    grid-column: 3;
+    grid-row: 1/-1;
+  }
+}/*# sourceMappingURL=styles.css.map */

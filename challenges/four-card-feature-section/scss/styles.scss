@@ -1,0 +1,157 @@
+@import "reset";
+@import "variables";
+@import "functions";
+@import "fonts";
+@import "breakpoints";
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100dvh;
+  font-size: $fs;
+  color: $color-very-dark-blue;
+}
+
+main {
+  padding-bottom: rem(80);
+}
+
+.header {
+  width: rem(311);
+  margin: rem(85) rem(32) rem(76) rem(32);
+  padding: 0 rem(7);
+  text-align: center;
+
+  .title {
+    font-size: rem(24);
+    margin-bottom: rem(16);
+    font-family: "Poppins ExtraLight", sans-serif, system-ui;
+    letter-spacing: 0.17px;
+    text-align: initial;
+
+    em {
+      display: block;
+      font-family: "Poppins SemiBold", sans-serif, system-ui;
+    }
+  }
+
+  .powered-by {
+    font-family: "Poppins Regular", sans-serif, system-ui;
+    font-size: rem(15);
+    line-height: rem(25);
+    letter-spacing: 0.1px;
+    opacity: 0.5;
+  }
+}
+
+.features {
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  gap: rem(25);
+}
+
+.feature {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  align-items: center;
+  width: rem(311);
+  height: rem(222);
+  padding: rem(28) rem(28);
+  padding-top: rem(27);
+  border: 1px solid transparent;
+  border-top-width: 3.55px;
+  border-radius: 8px;
+  box-shadow: 0px 15px 30px -11px $color-box-shadow;
+
+  h1 {
+    margin-bottom: rem(6);
+    font-family: "Poppins SemiBold", sans-serif, system-ui;
+    font-size: rem(20);
+  }
+
+  p {
+    margin-bottom: rem(33);
+    font-family: "Poppins Regular", sans-serif, system-ui;
+    font-size: rem(13);
+    line-height: rem(23);
+    letter-spacing: 0.09px;
+    opacity: 0.5;
+  }
+
+  img {
+    display: block;
+    width: rem(57);
+    height: rem(57);
+    justify-self: end;
+  }
+
+  &.feature-supervisor {
+    border-top-color: $color-cyan;
+  }
+
+  &.feature-team-builder {
+    border-top-color: $color-red;
+  }
+
+  &.feature-karma {
+    border-top-color: $color-orange;
+  }
+
+  &.feature-calculator {
+    border-top-color: $color-blue;
+  }
+}
+
+@include breakpoint(desktop) {
+  .header {
+    width: rem(540);
+
+    .title {
+      font-size: rem(36);
+      text-align: center;
+    }
+  }
+
+  .features {
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    gap: rem(30);
+  }
+
+  .feature {
+    width: rem(350);
+    height: rem(250);
+    padding: rem(32);
+    border-top-width: 4px;
+    box-shadow: 0px 15px 30px -11px $color-box-shadow;
+
+    p {
+      margin-bottom: rem(40);
+    }
+
+    img {
+      width: rem(60);
+      height: rem(60);
+    }
+  }
+
+  .feature-supervisor {
+    grid-column: 1;
+    grid-row: 1 / -1;
+  }
+
+  .feature-team-builder {
+    grid-column: 2;
+  }
+
+  .feature-karma {
+    grid-column: 2;
+  }
+
+  .feature-calculator {
+    grid-column: 3;
+    grid-row: 1 / -1;
+  }
+}

@@ -1,0 +1,16 @@
+$fs-value: 16;
+$fs: $fs-value + px;
+
+// color palette
+$color-red: hsl(0, 78%, 62%);
+$color-blue: hsl(212, 86%, 64%);
+$color-orange: hsl(34, 97%, 64%);
+$color-cyan: hsl(180, 62%, 55%);
+$color-very-dark-blue: hsl(234, 12%, 34%); // #4d4f62
+/** 
+  Box shadow colors were calculated using Figma plugin
+  https://www.figma.com/community/plugin/1374511779922909714/figma-drop-and-inner-shadow-to-css-box-shadow
+*/
+$color-box-shadow: rgba(131, 166, 210, 50%);
+
+$breakpoint-desktop: 1110;
