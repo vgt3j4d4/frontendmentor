@@ -83,7 +83,8 @@ main {
 
 .header {
   width: 19.4375rem;
-  margin: 5.3125rem 2rem 4.75rem 2rem;
+  margin-top: 5.3125rem;
+  margin-bottom: 4.75rem;
   padding: 0 0.4375rem;
   text-align: center;
 }
@@ -125,8 +126,8 @@ main {
   border-radius: 8px;
   box-shadow: 0px 15px 30px -11px rgba(131, 166, 210, 0.5);
 }
-.feature h1 {
-  margin-bottom: 0.375rem;
+.feature h2 {
+  margin-bottom: 0.0625rem;
   font-family: "Poppins SemiBold", sans-serif, system-ui;
   font-size: 1.25rem;
 }
@@ -160,6 +161,8 @@ main {
 @media (width >= 69.375rem) {
   .header {
     width: 33.75rem;
+    margin-top: 5rem;
+    margin-bottom: 4rem;
   }
   .header .title {
     font-size: 2.25rem;
@@ -178,12 +181,15 @@ main {
     border-top-width: 4px;
     box-shadow: 0px 15px 30px -11px rgba(131, 166, 210, 0.5);
   }
+  .feature h2 {
+    margin-bottom: 0.375rem;
+  }
   .feature p {
     margin-bottom: 2.5rem;
   }
   .feature img {
-    width: 3.75rem;
-    height: 3.75rem;
+    width: 4rem;
+    height: 4rem;
   }
   .feature-supervisor {
     grid-column: 1;

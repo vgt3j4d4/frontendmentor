@@ -19,7 +19,8 @@ main {
 
 .header {
   width: rem(311);
-  margin: rem(85) rem(32) rem(76) rem(32);
+  margin-top: rem(85);
+  margin-bottom: rem(76);
   padding: 0 rem(7);
   text-align: center;
 
@@ -64,8 +65,8 @@ main {
   border-radius: 8px;
   box-shadow: 0px 15px 30px -11px $color-box-shadow;
 
-  h1 {
-    margin-bottom: rem(6);
+  h2 {
+    margin-bottom: rem(1);
     font-family: "Poppins SemiBold", sans-serif, system-ui;
     font-size: rem(20);
   }
@@ -106,6 +107,8 @@ main {
 @include breakpoint(desktop) {
   .header {
     width: rem(540);
+    margin-top: rem(80);
+    margin-bottom: rem(64);
 
     .title {
       font-size: rem(36);
@@ -127,13 +130,17 @@ main {
     border-top-width: 4px;
     box-shadow: 0px 15px 30px -11px $color-box-shadow;
 
+    h2 {
+      margin-bottom: rem(6);
+    }
+
     p {
       margin-bottom: rem(40);
     }
 
     img {
-      width: rem(60);
-      height: rem(60);
+      width: rem(64);
+      height: rem(64);
     }
   }
 
