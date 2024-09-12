@@ -1,0 +1,143 @@
+@import "reset";
+@import "variables";
+@import "functions";
+@import "fonts";
+@import "breakpoints";
+
+body {
+  display: grid;
+  place-content: center;
+  color: $color-white;
+  background-color: #ecf2f8;
+  font-family: "Barlow Semi Condensed Medium", sans-serif, system-ui;
+  font-size: $fs;
+}
+
+main {
+  display: grid;
+  gap: rem(24);
+  padding: rem(71) rem(24);
+}
+
+.testimonial {
+  position: relative;
+  border-radius: 8px;
+  padding: rem(16) rem(32) rem(32) rem(32);
+  box-shadow: 40px 60px 50px -47px rgba(72, 85, 106, 25%);
+
+  &__header {
+    display: grid;
+    grid-template-columns: rem(28) 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "avatar fullname" "avatar verified";
+    column-gap: rem(17);
+    row-gap: rem(4);
+    align-items: start; // so the text doesn't stretch
+
+    img {
+      width: rem(28);
+      height: rem(28);
+      border-radius: 50%;
+      grid-area: avatar;
+    }
+
+    .fullname {
+      grid-area: fullname;
+      font-size: rem(13);
+      line-height: rem(13);
+    }
+    .verified {
+      grid-area: verified;
+      color: $color-light-gray;
+      opacity: 0.5;
+      font-size: rem(11);
+      line-height: rem(11);
+    }
+  }
+
+  &__title {
+    margin: rem(18) 0 rem(40) 0;
+    font-family: "Barlow Semi Condensed SemiBold", sans-serif, system-ui;
+    font-size: rem(20);
+  }
+
+  &__content {
+    margin-right: rem(16);
+    color: $color-light-gray;
+    // opacity: 0.7; // 70% opacity is what I get from figma but I don't think it's correct
+    font-size: rem(13);
+    line-height: rem(18);
+  }
+
+  &.testimonial-daniel {
+    background-color: $color-moderate-violet;
+    background-image: url("../images/bg-pattern-quotation.svg");
+    background-repeat: no-repeat;
+    background-position: top right rem(24);
+
+    .testimonial__header img {
+      border: 2px solid $color-daniel-avatar-border;
+    }
+  }
+  &.testimonial-jonathan {
+    background-color: $color-very-dark-grayish-blue;
+  }
+  &.testimonial-jeanette,
+  &.testimonial-kira {
+    color: $color-very-dark-grayish-blue;
+    background-color: $color-white;
+  }
+  &.testimonial-patrick {
+    background-color: $color-very-dark-blackish-blue;
+  }
+}
+
+@include breakpoint(desktop) {
+  main {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "daniel daniel jonathan kira"
+      "jeanette patrick patrick kira";
+    row-gap: rem(24);
+    column-gap: rem(30);
+    max-width: rem(1110);
+    padding: rem(164) 0;
+  }
+
+  .testimonial {
+    padding: rem(26) rem(32);
+
+    &__title {
+      margin: rem(18) 0 rem(16) 0;
+    }
+    &__content {
+      margin-right: 0;
+    }
+
+    &.testimonial-daniel {
+      grid-area: daniel;
+    }
+    &.testimonial-jonathan {
+      grid-area: jonathan;
+    }
+    &.testimonial-jeanette {
+      grid-area: jeanette;
+      .testimonial__title {
+        margin-bottom: rem(24);
+      }
+    }
+    &.testimonial-patrick {
+      grid-area: patrick;
+      .testimonial__title {
+        margin-bottom: rem(24);
+      }
+    }
+    &.testimonial-kira {
+      grid-area: kira;
+      .testimonial__title {
+        margin-bottom: rem(24);
+      }
+    }
+  }
+}
