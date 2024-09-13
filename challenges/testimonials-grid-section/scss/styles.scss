@@ -48,7 +48,6 @@ main {
     }
     .verified {
       grid-area: verified;
-      color: $color-light-gray;
       opacity: 0.5;
       font-size: rem(11);
       line-height: rem(11);
@@ -63,8 +62,7 @@ main {
 
   &__content {
     margin-right: rem(16);
-    color: $color-light-gray;
-    // opacity: 0.7; // 70% opacity is what I get from figma but I don't think it's correct
+    opacity: 0.7;
     font-size: rem(13);
     line-height: rem(18);
   }
@@ -117,6 +115,7 @@ main {
 
     &.testimonial-daniel {
       grid-area: daniel;
+      background-position: top right rem(80);
     }
     &.testimonial-jonathan {
       grid-area: jonathan;

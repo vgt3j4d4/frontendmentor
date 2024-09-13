@@ -46,7 +46,7 @@ p {
 body {
   display: grid;
   place-content: center;
-  color: hsl(0, 0%, 100%);
+  color: #fff;
   background-color: #ecf2f8;
   font-family: "Barlow Semi Condensed Medium", sans-serif, system-ui;
   font-size: 16px;
@@ -86,7 +86,6 @@ main {
 }
 .testimonial__header .verified {
   grid-area: verified;
-  color: hsl(0, 0%, 81%);
   opacity: 0.5;
   font-size: 0.6875rem;
   line-height: 0.6875rem;
@@ -98,12 +97,12 @@ main {
 }
 .testimonial__content {
   margin-right: 1rem;
-  color: hsl(0, 0%, 81%);
+  opacity: 0.7;
   font-size: 0.8125rem;
   line-height: 1.125rem;
 }
 .testimonial.testimonial-daniel {
-  background-color: hsl(263, 55%, 52%);
+  background-color: #733fc8;
   background-image: url("../images/bg-pattern-quotation.svg");
   background-repeat: no-repeat;
   background-position: top right 1.5rem;
@@ -112,14 +111,14 @@ main {
   border: 2px solid #a775f1;
 }
 .testimonial.testimonial-jonathan {
-  background-color: hsl(217, 19%, 35%);
+  background-color: #48556a;
 }
 .testimonial.testimonial-jeanette, .testimonial.testimonial-kira {
-  color: hsl(217, 19%, 35%);
-  background-color: hsl(0, 0%, 100%);
+  color: #48556a;
+  background-color: #fff;
 }
 .testimonial.testimonial-patrick {
-  background-color: hsl(219, 29%, 14%);
+  background-color: #19202d;
 }
 
 @media (width >= 68.75rem) {
@@ -143,6 +142,7 @@ main {
   }
   .testimonial.testimonial-daniel {
     grid-area: daniel;
+    background-position: top right 5rem;
   }
   .testimonial.testimonial-jonathan {
     grid-area: jonathan;
