@@ -30,8 +30,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Netlify](https://frontendmentor-gonzalotejada.netlify.app/testimonials-grid-section/)
+- Solution URL: [Solution URL](https://www.frontendmentor.io/solutions/testimonial-grid-section-G15UKU7NUk)
+- Live Site URL: [Live Site URL](https://frontendmentor-gonzalotejada.netlify.app/testimonials-grid-section/)
 
 ## My process
 
