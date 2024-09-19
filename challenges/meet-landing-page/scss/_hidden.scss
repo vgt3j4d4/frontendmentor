@@ -1,0 +1,20 @@
+@use "variables";
+@use "functions";
+
+@media (width < rem($breakpoint-tablet)) {
+  .hidden-mobile {
+    display: none;
+  }
+}
+
+@media ((width >= rem($breakpoint-tablet)) and (width < rem($breakpoint-desktop))) {
+  .hidden-tablet {
+    display: none;
+  }
+}
+
+@media (width >= rem($breakpoint-desktop)) {
+  .hidden-desktop {
+    display: none;
+  }
+}

@@ -5,45 +5,38 @@
 @use "fonts";
 
 @include breakpoint(desktop) {
-  .hidden-desktop {
-    display: none;
-  }
-
   .hero {
     flex-direction: row;
     align-items: flex-start;
     justify-content: center;
     gap: rem(32);
     width: 100%;
+    height: rem(488);
     padding: rem(64) 0;
 
     &__image-desktop--left {
-      position: relative;
-      right: rem(95.85);
+      flex: 1;
       width: rem(394);
-      height: rem(303);
+      height: 100%;
       background-image: url("../images/desktop/image-hero-left.png");
       background-repeat: no-repeat;
+      background-position: top 0 right rem(95.85);
     }
 
     &__image-desktop--right {
-      position: relative;
-      top: rem(57);
-      left: rem(95.85);
+      flex: 1;
       width: rem(394);
-      height: rem(303);
+      height: 100%;
       background-image: url("../images/desktop/image-hero-right.png");
       background-repeat: no-repeat;
-      background-position: center;
+      background-position: top rem(57) left rem(95.85);
     }
 
     &__content {
-      width: rem(480); // figma says rem(448.3)
-      padding: rem(23) rem(32);
+      --h1-fs: #{rem($fs-text-preset-1-desktop)};
+      --p-fs: #{rem($fs-text-preset-4-desktop)};
 
-      h1 {
-        font-size: rem($fs-text-preset-1-desktop);
-      }
+      padding: rem(23) rem(32);
     }
   }
 
@@ -60,14 +53,9 @@
   }
 
   .cta-footer {
-    background: $cta-linear-gradient, url("../images/desktop/image-footer.jpg");
-    background-position-y: rem(
-      $number-line-height + math.div($number-height, 2)
-    );
-    background-repeat: no-repeat;
-    background-size: cover;
-
     &__content {
+      --image-footer: url("../images/desktop/image-footer.jpg");
+
       flex-direction: row;
       align-items: flex-start;
       gap: rem(32);

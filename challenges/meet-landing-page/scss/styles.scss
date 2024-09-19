@@ -5,11 +5,10 @@
 @import "variables";
 @import "functions";
 @import "buttons";
+@import "number";
+@import "hidden";
 
 body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   padding-top: rem(80);
   font-family: "Red Hat Display", sans-serif, system-ui;
   font-size: $fs;
@@ -20,41 +19,15 @@ body {
   display: block;
 }
 
-.btn-group {
-  padding: rem(24) rem(56) 0 rem(56);
-  flex-wrap: wrap;
-}
-
-.number {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  span:first-child {
-    display: block;
-    width: 1px;
-    height: rem($number-line-height);
-    border-right: 1px solid $color-slate-300;
-  }
-
-  span:last-child {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: rem($number-width);
-    height: rem($number-height);
-    border: 1px solid $color-slate-300;
-    border-radius: 50%;
-    color: $color-slate-600;
-    background-color: $color-white;
-    @include text-preset-5;
-    font-size: rem($fs-text-preset-5-desktop);
-  }
+main {
+  width: 100%;
 }
 
 .hero {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  width: 100%;
   padding-top: rem(64);
 
   &__image-mobile {
@@ -81,23 +54,32 @@ body {
   }
 
   &__content {
+    --h1-fs: #{rem($fs-text-preset-1-mobile)};
+    --p-fs: #{rem($fs-text-preset-4-tablet)};
+
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: rem(24);
+    max-width: rem(480); // figma says rem(448.3)
     padding: rem(48) rem(35) rem(32) rem(35);
 
     h1 {
       max-width: 10ch;
       color: $color-slate-900;
       @include text-preset-1;
-      font-size: rem($fs-text-preset-1-mobile);
+      font-size: var(--h1-fs);
     }
 
     p {
-      padding: rem(24) 0;
       color: $color-slate-600;
       @include text-preset-4;
-      font-size: rem($fs-text-preset-4-tablet);
+      font-size: var(--p-fs);
+    }
+
+    .btn-group {
+      padding: 0 rem(56);
+      flex-wrap: wrap;
     }
   }
 }
@@ -130,17 +112,25 @@ body {
   }
 
   &__text {
+    --h2-fs: #{rem($fs-text-preset-2-mobile)};
+    --p-fs: #{rem($fs-text-preset-3-mobile)};
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: rem(504);
+
     h2 {
       padding-bottom: rem(32);
       @include text-preset-2;
-      font-size: rem($fs-text-preset-2-mobile);
+      font-size: var(--h2-fs);
       color: $color-slate-900;
 
       em {
         display: block;
         padding-bottom: rem(16);
         @include text-preset-3;
-        font-size: rem($fs-text-preset-3-mobile);
+        font-size: var(--p-fs);
         text-transform: uppercase;
         color: $color-cyan-600;
       }
@@ -156,30 +146,34 @@ body {
 
 .cta-footer {
   width: 100%;
-  background: $cta-linear-gradient, url("../images/mobile/image-footer.jpg");
-  background-position-y: rem($number-line-height + math.div($number-height, 2));
-  background-repeat: no-repeat;
-  background-size: cover;
   color: $color-white;
 
   &__content {
+    --image-footer: #{url("../images/mobile/image-footer.jpg")};
+    --h2-fs: #{rem($fs-text-preset-2-mobile)};
+    --p-fs: #{rem($fs-text-preset-4-tablet)};
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: rem(24);
+    margin-top: -#{rem(math.div($number-height, 2))};
     padding: rem(64) rem(32);
+    background: $cta-linear-gradient, var(--image-footer);
+    background-repeat: no-repeat;
+    background-size: cover;
 
     h2 {
       @include text-preset-2;
-      font-size: rem($fs-text-preset-2-mobile);
+      font-size: var(--h2-fs);
     }
 
     p {
       min-width: rem(311);
       max-width: rem(504);
       @include text-preset-4;
-      font-size: rem($fs-text-preset-4-tablet);
+      font-size: var(--p-fs);
     }
   }
 }

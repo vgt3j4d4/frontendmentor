@@ -82,29 +82,12 @@ p {
   gap: 1rem;
 }
 
-body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 5rem;
-  font-family: "Red Hat Display", sans-serif, system-ui;
-  font-size: 16px;
-  text-align: center;
-}
-
-.navbar > * {
-  display: block;
-}
-
-.btn-group {
-  padding: 1.5rem 3.5rem 0 3.5rem;
-  flex-wrap: wrap;
-}
-
 .number {
   display: flex;
   flex-direction: column;
   align-items: center;
+  /** Vertical line */
+  /** Rounded number */
 }
 .number span:first-child {
   display: block;
@@ -128,9 +111,40 @@ body {
   font-size: 1rem;
 }
 
+@media (width < 48rem) {
+  .hidden-mobile {
+    display: none;
+  }
+}
+@media ((width >= 48rem) and (width < 90rem)) {
+  .hidden-tablet {
+    display: none;
+  }
+}
+@media (width >= 90rem) {
+  .hidden-desktop {
+    display: none;
+  }
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5rem;
+  font-family: "Red Hat Display", sans-serif, system-ui;
+  font-size: 16px;
+  text-align: center;
+}
+
+.navbar > * {
+  display: block;
+}
+
 .hero {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  width: 100%;
   padding-top: 4rem;
 }
 .hero__image-mobile {
@@ -146,9 +160,13 @@ body {
   background-size: clamp(var(--min-width), var(--min-width) + 100vw - var(--min-width), 100%) auto;
 }
 .hero__content {
+  --h1-fs: 2.5rem;
+  --p-fs: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 1.5rem;
+  max-width: 30rem;
   padding: 3rem 2.1875rem 2rem 2.1875rem;
 }
 .hero__content h1 {
@@ -157,15 +175,18 @@ body {
   font-weight: 900;
   line-height: 110%;
   letter-spacing: 0;
-  font-size: 2.5rem;
+  font-size: var(--h1-fs);
 }
 .hero__content p {
-  padding: 1.5rem 0;
   color: #87879d;
   font-weight: 500;
   line-height: 150%;
   letter-spacing: 0;
-  font-size: 1rem;
+  font-size: var(--p-fs);
+}
+.hero__content .btn-group {
+  padding: 0 3.5rem;
+  flex-wrap: wrap;
 }
 
 .main-content {
@@ -193,12 +214,20 @@ body {
   object-fit: cover;
   border-radius: 0.5rem;
 }
+.main-content__text {
+  --h2-fs: 2rem;
+  --p-fs: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 31.5rem;
+}
 .main-content__text h2 {
   padding-bottom: 2rem;
   font-weight: 900;
   line-height: 110%;
   letter-spacing: 0;
-  font-size: 2rem;
+  font-size: var(--h2-fs);
   color: #28283d;
 }
 .main-content__text h2 em {
@@ -207,7 +236,7 @@ body {
   font-weight: 900;
   line-height: 110%;
   letter-spacing: 0.25rem;
-  font-size: 0.75rem;
+  font-size: var(--p-fs);
   text-transform: uppercase;
   color: #4d96a9;
 }
@@ -221,25 +250,28 @@ body {
 
 .cta-footer {
   width: 100%;
-  background: linear-gradient(rgba(77, 150, 168, 0.8), rgba(143, 227, 249, 0.8)), url("../images/mobile/image-footer.jpg");
-  background-position-y: 6.75rem;
-  background-repeat: no-repeat;
-  background-size: cover;
   color: #fafafa;
 }
 .cta-footer__content {
+  --image-footer: url("../images/mobile/image-footer.jpg");
+  --h2-fs: 2rem;
+  --p-fs: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 1.5rem;
+  margin-top: -1.75rem;
   padding: 4rem 2rem;
+  background: linear-gradient(rgba(77, 150, 168, 0.8), rgba(77, 150, 168, 0.8)), var(--image-footer);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .cta-footer__content h2 {
   font-weight: 900;
   line-height: 110%;
   letter-spacing: 0;
-  font-size: 2rem;
+  font-size: var(--h2-fs);
 }
 .cta-footer__content p {
   min-width: 19.4375rem;
@@ -247,7 +279,7 @@ body {
   font-weight: 500;
   line-height: 150%;
   letter-spacing: 0;
-  font-size: 1rem;
+  font-size: var(--p-fs);
 }
 
 @font-face {
@@ -265,15 +297,17 @@ body {
   src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
   font-weight: 500 900;
 }
-@media ((width >= 48rem) and (width < 90rem)) {
-  .hidden-tablet {
-    display: none;
+@media (width >= 48rem) {
+  .hero__image-mobile {
+    background-size: 51.25rem auto;
   }
-  .hero__content h1 {
-    font-size: 3rem;
+  .hero__content {
+    --h1-fs: 3rem;
+    --p-fs: 1rem;
   }
-  .hero__content p {
-    font-size: 1rem;
+  .hero__content .btn-group {
+    flex-wrap: nowrap;
+    padding: 0;
   }
   .main-content {
     padding: 3.375rem 2.75rem 4rem 2.75rem;
@@ -287,16 +321,15 @@ body {
     min-height: 10rem;
   }
   .main-content__text {
-    max-width: 31.5rem;
+    --h2-fs: 2.25rem;
+    --p-fs: 0.875rem;
   }
-  .cta-footer {
-    background: linear-gradient(rgba(77, 150, 168, 0.8), rgba(143, 227, 249, 0.8)), url("../images/tablet/image-footer.jpg");
-    background-position-y: 6.75rem;
-    background-repeat: no-repeat;
-    background-size: cover;
+  .main-content__text h2 {
+    max-width: 27.6875rem;
   }
-  .cta-footer__content h2 {
-    font-size: 2.25rem;
+  .cta-footer__content {
+    --image-footer: url("../images/tablet/image-footer.jpg");
+    --h2-fs: 2.25rem;
   }
 }
 @font-face {
@@ -305,41 +338,35 @@ body {
   font-weight: 500 900;
 }
 @media (width >= 90rem) {
-  .hidden-desktop {
-    display: none;
-  }
   .hero {
     flex-direction: row;
     align-items: flex-start;
     justify-content: center;
     gap: 2rem;
     width: 100%;
+    height: 30.5rem;
     padding: 4rem 0;
   }
   .hero__image-desktop--left {
-    position: relative;
-    right: 5.990625rem;
+    flex: 1;
     width: 24.625rem;
-    height: 18.9375rem;
+    height: 100%;
     background-image: url("../images/desktop/image-hero-left.png");
     background-repeat: no-repeat;
+    background-position: top 0 right 5.990625rem;
   }
   .hero__image-desktop--right {
-    position: relative;
-    top: 3.5625rem;
-    left: 5.990625rem;
+    flex: 1;
     width: 24.625rem;
-    height: 18.9375rem;
+    height: 100%;
     background-image: url("../images/desktop/image-hero-right.png");
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: top 3.5625rem left 5.990625rem;
   }
   .hero__content {
-    width: 30rem;
+    --h1-fs: 4rem;
+    --p-fs: 1.125rem;
     padding: 1.4375rem 2rem;
-  }
-  .hero__content h1 {
-    font-size: 4rem;
   }
   .main-content__image-collage {
     grid-template-columns: repeat(4, auto);
@@ -349,13 +376,8 @@ body {
   .main-content__text {
     max-width: 34rem;
   }
-  .cta-footer {
-    background: linear-gradient(rgba(77, 150, 168, 0.8), rgba(143, 227, 249, 0.8)), url("../images/desktop/image-footer.jpg");
-    background-position-y: 6.75rem;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
   .cta-footer__content {
+    --image-footer: url("../images/desktop/image-footer.jpg");
     flex-direction: row;
     align-items: flex-start;
     gap: 2rem;
