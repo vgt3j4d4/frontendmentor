@@ -1,0 +1,55 @@
+@use "sass:math";
+
+@use "variables";
+@use "functions";
+@use "fonts";
+
+@include breakpoint(tablet) {
+  .hidden-tablet {
+    display: none;
+  }
+
+  .hero {
+    &__content {
+      h1 {
+        font-size: rem($fs-text-preset-1-tablet);
+      }
+      p {
+        font-size: rem($fs-text-preset-4-tablet);
+      }
+    }
+  }
+
+  .main-content {
+    padding: rem(54) rem(44) rem(64) rem(44);
+
+    &__image-collage {
+      grid-template-columns: repeat(4, auto);
+      grid-template-rows: auto;
+      gap: rem(24);
+
+      img {
+        min-height: rem(160);
+      }
+    }
+
+    &__text {
+      max-width: rem(504);
+    }
+  }
+
+  .cta-footer {
+    background: $cta-linear-gradient, url("../images/tablet/image-footer.jpg");
+    background-position-y: rem(
+      $number-line-height + math.div($number-height, 2)
+    );
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &__content {
+      h2 {
+        font-size: rem($fs-text-preset-2-tablet);
+      }
+    }
+  }
+}

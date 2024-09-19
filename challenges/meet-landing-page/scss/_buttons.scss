@@ -1,0 +1,46 @@
+@import "variables";
+@import "functions";
+@import "fonts";
+
+.btn {
+  display: inline-block;
+  padding: rem(16) rem(40);
+  color: $color-white;
+  border: 0;
+  border-radius: 29px;
+  border-color: transparent;
+  @include text-preset-5;
+  font-size: rem($fs-text-preset-5-desktop);
+  text-wrap: nowrap;
+
+  &-blue {
+    background-color: $color-cyan-600;
+
+    &:hover {
+      background-color: $color-btn-blue-hover;
+    }
+
+    em {
+      color: $color-cyan-300;
+    }
+  }
+
+  &-purple {
+    background-color: $color-purple-600;
+
+    &:hover {
+      background-color: $color-btn-purple-hover;
+    }
+
+    em {
+      color: $color-purple-300;
+    }
+  }
+}
+
+.btn-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: rem(16);
+}

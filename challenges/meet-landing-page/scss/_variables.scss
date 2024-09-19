@@ -1,0 +1,40 @@
+$fs-value: 16;
+$fs: $fs-value + px;
+
+$color-cyan-600: #4d96a9;
+$color-cyan-300: #8fe3f9;
+$color-purple-600: #855fb1;
+$color-purple-300: #d9b8ff;
+$color-slate-900: #28283d;
+$color-slate-600: #87879d;
+$color-slate-300: #d1d1df;
+$color-white: #fafafa;
+
+$color-btn-blue-hover: #71c0d4;
+$color-btn-purple-hover: #b18bdd;
+
+$fs-text-preset-1-mobile: 40;
+$fs-text-preset-2-mobile: 32;
+$fs-text-preset-3-mobile: 12;
+$fs-text-preset-1-tablet: 48;
+$fs-text-preset-2-tablet: 36;
+$fs-text-preset-3-tablet: 14;
+$fs-text-preset-4-tablet: 16;
+$fs-text-preset-1-desktop: 64;
+$fs-text-preset-2-desktop: 40;
+$fs-text-preset-3-desktop: 16;
+$fs-text-preset-4-desktop: 18;
+$fs-text-preset-5-desktop: 16;
+
+$number-line-height: 80;
+$number-width: 56;
+$number-height: 56;
+
+$cta-linear-gradient: linear-gradient(
+  rgb(77, 150, 168, 0.8),
+  rgb(143, 227, 249, 0.8)
+);
+
+$breakpoint-mobile: 375;
+$breakpoint-tablet: 768;
+$breakpoint-desktop: 1440;

@@ -1,0 +1,189 @@
+@use "sass:math";
+
+@import "reset";
+@import "fonts";
+@import "variables";
+@import "functions";
+@import "buttons";
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: rem(80);
+  font-family: "Red Hat Display", sans-serif, system-ui;
+  font-size: $fs;
+  text-align: center;
+}
+
+.navbar > * {
+  display: block;
+}
+
+.btn-group {
+  padding: rem(24) rem(56) 0 rem(56);
+  flex-wrap: wrap;
+}
+
+.number {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  span:first-child {
+    display: block;
+    width: 1px;
+    height: rem($number-line-height);
+    border-right: 1px solid $color-slate-300;
+  }
+
+  span:last-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: rem($number-width);
+    height: rem($number-height);
+    border: 1px solid $color-slate-300;
+    border-radius: 50%;
+    color: $color-slate-600;
+    background-color: $color-white;
+    @include text-preset-5;
+    font-size: rem($fs-text-preset-5-desktop);
+  }
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  padding-top: rem(64);
+
+  &__image-mobile {
+    --min-width: #{rem(433)};
+    --max-width: #{rem(820)};
+    --min-height: #{rem(160)};
+    --max-height: #{rem(303)};
+
+    width: 100%;
+    height: clamp(
+      var(--min-height),
+      var(--min-height) + (100vw - rem($breakpoint-mobile)),
+      var(--max-height)
+    );
+    background: url("../images/tablet/image-hero.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: clamp(
+        var(--min-width),
+        var(--min-width) + (100vw - var(--min-width)),
+        100%
+      )
+      auto;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: rem(48) rem(35) rem(32) rem(35);
+
+    h1 {
+      max-width: 10ch;
+      color: $color-slate-900;
+      @include text-preset-1;
+      font-size: rem($fs-text-preset-1-mobile);
+    }
+
+    p {
+      padding: rem(24) 0;
+      color: $color-slate-600;
+      @include text-preset-4;
+      font-size: rem($fs-text-preset-4-tablet);
+    }
+  }
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: rem(32);
+  padding-bottom: rem(64);
+
+  &__image-collage {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    align-content: stretch;
+    justify-items: center;
+    gap: rem(16);
+    max-width: rem(1120);
+    padding: rem(64) 0;
+
+    img {
+      width: 100%;
+      min-width: rem(147.5);
+      height: 100%;
+      min-height: rem(144);
+      object-fit: cover;
+      border-radius: rem(8);
+    }
+  }
+
+  &__text {
+    h2 {
+      padding-bottom: rem(32);
+      @include text-preset-2;
+      font-size: rem($fs-text-preset-2-mobile);
+      color: $color-slate-900;
+
+      em {
+        display: block;
+        padding-bottom: rem(16);
+        @include text-preset-3;
+        font-size: rem($fs-text-preset-3-mobile);
+        text-transform: uppercase;
+        color: $color-cyan-600;
+      }
+    }
+
+    p {
+      @include text-preset-4;
+      font-size: rem($fs-text-preset-4-tablet);
+      color: $color-slate-600;
+    }
+  }
+}
+
+.cta-footer {
+  width: 100%;
+  background: $cta-linear-gradient, url("../images/mobile/image-footer.jpg");
+  background-position-y: rem($number-line-height + math.div($number-height, 2));
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: $color-white;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: rem(24);
+    padding: rem(64) rem(32);
+
+    h2 {
+      @include text-preset-2;
+      font-size: rem($fs-text-preset-2-mobile);
+    }
+
+    p {
+      min-width: rem(311);
+      max-width: rem(504);
+      @include text-preset-4;
+      font-size: rem($fs-text-preset-4-tablet);
+    }
+  }
+}
+
+@import "mobile";
+@import "tablet";
+@import "desktop";
