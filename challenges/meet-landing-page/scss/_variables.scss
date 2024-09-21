@@ -9,6 +9,7 @@ $color-slate-900: #28283d;
 $color-slate-600: #87879d;
 $color-slate-300: #d1d1df;
 $color-white: #fafafa;
+$color-cta-background: rgba(77, 150, 169, 0.85);
 
 $color-btn-blue-hover: #71c0d4;
 $color-btn-purple-hover: #b18bdd;
@@ -29,11 +30,6 @@ $fs-text-preset-5-desktop: 16;
 $number-line-height: 80;
 $number-width: 56;
 $number-height: 56;
-
-$cta-linear-gradient: linear-gradient(
-  rgb(77, 150, 168, 0.8),
-  rgb(143, 227, 249, 0.8)
-);
 
 $breakpoint-mobile: 375;
 $breakpoint-tablet: 768;

@@ -145,14 +145,17 @@ main {
 }
 
 .cta-footer {
+  --image-footer: #{url("../images/mobile/image-footer.jpg")};
+  --h2-fs: #{rem($fs-text-preset-2-mobile)};
+  --p-fs: #{rem($fs-text-preset-4-tablet)};
+
   width: 100%;
   color: $color-white;
+  background: var(--image-footer);
+  background-repeat: no-repeat;
+  background-size: cover;
 
   &__content {
-    --image-footer: #{url("../images/mobile/image-footer.jpg")};
-    --h2-fs: #{rem($fs-text-preset-2-mobile)};
-    --p-fs: #{rem($fs-text-preset-4-tablet)};
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -160,9 +163,7 @@ main {
     gap: rem(24);
     margin-top: -#{rem(math.div($number-height, 2))};
     padding: rem(64) rem(32);
-    background: $cta-linear-gradient, var(--image-footer);
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-color: $color-cta-background;
 
     h2 {
       @include text-preset-2;
@@ -177,7 +178,3 @@ main {
     }
   }
 }
-
-@import "mobile";
-@import "tablet";
-@import "desktop";

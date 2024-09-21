@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Meet landing page for group chat solutions, enabling face-to-face virtual meetings and cross-device collaboration."
+    />
 
     <link
       rel="icon"
@@ -11,15 +15,28 @@
       href="./images/favicon-32x32.png"
     />
 
-    <title>Frontend Mentor | Meet landing page</title>
-    <link rel="stylesheet" href="css/styles.css" />
+    <title>Group Chat for Everyone | Meet Landing Page</title>
+
+    <link rel="stylesheet" href="css/styles.css" media="all" />
+    <link
+      rel="stylesheet"
+      href="css/styles-tablet.css"
+      media="(min-width: 768px) and (max-width: 1439px)"
+    />
+    <link
+      rel="stylesheet"
+      href="css/styles-desktop.css"
+      media="(min-width: 1440px)"
+    />
 
     <style>
+      /** This is just to help me debug things. Not need to added to the final code */
       .debug {
         border: 1px solid red;
       }
     </style>
   </head>
+
   <body>
     <nav class="navbar">
       <a href="/">
@@ -35,7 +52,7 @@
 
         <div class="hero__image-mobile hidden-desktop"></div>
 
-        <div class="hero__content">
+        <section class="hero__content">
           <h1>Group Chat for Everyone</h1>
           <p>
             Meet makes it easy to connect with others face-to-face virtually and
@@ -45,7 +62,7 @@
             <button class="btn btn-blue">Download <em>v1.3</em></button>
             <button class="btn btn-purple">What is it?</button>
           </div>
-        </div>
+        </section>
 
         <div
           class="hero__image-desktop--right hidden-mobile hidden-tablet"
@@ -58,20 +75,27 @@
         <div class="main-content__image-collage">
           <img
             src="./images/desktop/image-woman-in-videocall.jpg"
-            alt="Woman in video call"
+            alt="A woman in a video call looking happy"
+            loading="lazy"
           />
           <img
             src="./images/desktop/image-women-videochatting.jpg"
-            alt="Women videochatting"
+            alt="3 women looking at a phone in what looks like a video call"
+            loading="lazy"
           />
           <img
             src="./images/desktop/image-men-in-meeting.jpg"
-            alt="Men in meeting"
+            alt="A man in a video chat meeting with a young man"
+            loading="lazy"
           />
-          <img src="./images/desktop/image-man-texting.jpg" alt="Man texting" />
+          <img
+            src="./images/desktop/image-man-texting.jpg"
+            alt="An african american man looking at his phone"
+            loading="lazy"
+          />
         </div>
 
-        <div class="main-content__text">
+        <section class="main-content__text">
           <h2>
             <em>Built for modern use</em>Smarter meetings, all in one place
           </h2>
@@ -80,20 +104,20 @@
             meetings — all in one workspace. Control who can join with
             invite-only team access, data encryption, and data export.
           </p>
-        </div>
+        </section>
       </div>
 
-      <div class="cta-footer">
-        <div class="number"><span></span><span>02</span></div>
+      <div class="number"><span></span><span>02</span></div>
 
-        <div class="cta-footer__content">
+      <div class="cta-footer">
+        <section class="cta-footer__content">
           <h2>Experience more together</h2>
           <p>
             Stay connected with reliable HD meetings and unlimited one-on-one
             and group video sessions.
           </p>
           <button class="btn btn-purple">Download <em>v1.3</em></button>
-        </div>
+        </section>
       </div>
     </main>
   </body>

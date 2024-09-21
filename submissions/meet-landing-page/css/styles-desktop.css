@@ -1,0 +1,68 @@
+.hero {
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+  height: 30.5rem;
+  padding: 4rem 0;
+}
+.hero__image-desktop--left {
+  flex: 1;
+  width: 24.625rem;
+  height: 100%;
+  background-image: url("../images/desktop/image-hero-left.png");
+  background-repeat: no-repeat;
+  background-position: top 0 right 5.990625rem;
+}
+.hero__image-desktop--right {
+  flex: 1;
+  width: 24.625rem;
+  height: 100%;
+  background-image: url("../images/desktop/image-hero-right.png");
+  background-repeat: no-repeat;
+  background-position: top 3.5625rem left 5.990625rem;
+}
+.hero__content {
+  --h1-fs: 4rem;
+  --p-fs: 1.125rem;
+  padding: 1.4375rem 2rem;
+}
+
+.main-content__image-collage {
+  grid-template-columns: repeat(4, auto);
+  grid-template-rows: auto;
+  gap: 2rem;
+}
+.main-content__text {
+  max-width: 34rem;
+}
+
+.cta-footer {
+  --image-footer: url("../images/desktop/image-footer.jpg");
+}
+.cta-footer__content {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 7rem 5rem;
+}
+.cta-footer__content h2,
+.cta-footer__content p {
+  text-align: initial;
+}
+.cta-footer__content h2 {
+  max-width: 27.8125rem;
+  font-size: 2.5rem;
+}
+.cta-footer__content p {
+  max-width: 22.1875rem;
+  font-size: 1.125rem;
+}
+.cta-footer__content .btn {
+  margin-left: 3.9375rem;
+}
+
+.btn-group {
+  flex-wrap: nowrap;
+}/*# sourceMappingURL=styles-desktop.css.map */

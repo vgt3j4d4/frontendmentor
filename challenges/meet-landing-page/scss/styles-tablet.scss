@@ -1,0 +1,48 @@
+@import "variables";
+@import "functions";
+
+.hero {
+  &__image-mobile {
+    background-size: rem(820) auto;
+  }
+
+  &__content {
+    --h1-fs: #{rem($fs-text-preset-1-tablet)};
+    --p-fs: #{rem($fs-text-preset-4-tablet)};
+
+    .btn-group {
+      flex-wrap: nowrap;
+      padding: 0;
+    }
+  }
+}
+
+.main-content {
+  padding: rem(54) rem(44) rem(64) rem(44);
+
+  &__image-collage {
+    grid-template-columns: repeat(4, auto);
+    grid-template-rows: auto;
+    gap: rem(24);
+
+    img {
+      min-height: rem(160);
+    }
+  }
+
+  &__text {
+    --h2-fs: #{rem($fs-text-preset-2-tablet)};
+    --p-fs: #{rem($fs-text-preset-3-tablet)};
+
+    h2 {
+      max-width: rem(443);
+    }
+  }
+}
+
+.cta-footer {
+  --image-footer: url("../images/tablet/image-footer.jpg");
+  &__content {
+    --h2-fs: #{rem($fs-text-preset-2-tablet)};
+  }
+}
