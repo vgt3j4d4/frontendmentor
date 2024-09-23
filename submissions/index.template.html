@@ -11,19 +11,26 @@
     />
   </head>
   <body class="container">
+    <header class="header">
+      <h1>Frontend Mentor Challenges</h1>
+    </header>
     <main>
-      <header class="header">
-        <h1>Frontend Mentor Challenges</h1>
-      </header>
       <ul>
         {{#each challengeUrls}}
-          <li><a href="/{{this.url}}" class="contrast" target="_blank">{{this.label}}</a></li>
+        <li>
+          <a href="/{{this.url}}" class="contrast" target="_blank"
+            >{{this.label}}</a
+          >
+        </li>
         {{/each}}
       </ul>
     </main>
     <footer class="footer">
       <p>
-        Made by <a href="https://www.frontendmentor.io/profile/vgt3j4d4" target="_blank">Gonzalo Tejada</a>
+        Made by
+        <a href="https://www.frontendmentor.io/profile/vgt3j4d4" target="_blank"
+          >Gonzalo Tejada</a
+        >
       </p>
     </footer>
   </body>
