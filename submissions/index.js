@@ -3,64 +3,67 @@ const join = require("path").join;
 const platform = require("os").platform;
 const cp = require("child_process");
 const npmCmd = platform().startsWith("win") ? "npm.cmd" : "npm";
-const challengesPath = "../challenges";
 const copyFiles = require("copyfiles");
 const handlebars = require("handlebars");
+const chalk = require("chalk");
 
-let filePath,
+const log = console.log;
+const CHALLENGES_PATH = "../challenges";
+
+let challengeFilePath,
   generatedDistFolderPath,
-  urls = [];
+  challengeNames = [];
 
-console.log("Building all challenges...");
-fs.readdirSync(challengesPath, { withFileTypes: true }).forEach((file) => {
-  if (file.isDirectory()) {
-    filePath = join("../challenges", file.name);
-    // Ensure path has package.json
-    if (fs.existsSync(join(filePath, "package.json"))) {
-      console.log("Running 'npm run dist' on " + file.name);
-      cp.spawn(npmCmd, ["run", "dist"], {
-        env: process.env,
-        cwd: filePath,
-        stdio: "inherit",
-      });
-    }
-    generatedDistFolderPath = join(filePath, "dist", "/**/*");
+log(chalk.cyan("======================="));
+log(chalk.cyan("Building all challenges"));
+log(chalk.cyan("======================="));
+fs.readdirSync(CHALLENGES_PATH, { withFileTypes: true }).forEach((folder) => {
+  if (!folder.isDirectory()) return;
 
-    console.log(
-      "Copying files from " + generatedDistFolderPath + " to " + __dirname
-    );
-    copyFiles(
-      [generatedDistFolderPath, join(__dirname, file.name)],
-      { all: true, up: 4 },
-      () => {
-        console.log("Files copied successfully");
-      }
-    );
-    urls.push(file.name);
-  }
+  challengeFilePath = join("../challenges", folder.name);
+  if (!fs.existsSync(join(challengeFilePath, "package.json"))) return; // Ensure path has package.json
 
-  if (urls.length > 0) {
-    challengeUrls = [];
-    urls.map((url) => {
-      const label = url
-        .replace(/\-/g, " ")
-        .split(" ")
-        .map((word) => word[0].toUpperCase() + word.slice(1))
-        .join(" ");
-      challengeUrls.push({ url, label });
-    });
+  log(chalk.green("Running 'npm run dist' on " + folder.name));
+  cp.spawn(npmCmd, ["run", "dist"], {
+    env: process.env,
+    cwd: challengeFilePath,
+    stdio: "inherit",
+  });
+  challengeDistFolder = join(challengeFilePath, "dist", "/**/*");
 
-    console.log("Generating index.html");
-    const indexTemplate = fs.readFileSync(
-      join(__dirname, "index.template.html"),
-      "utf8"
-    );
-    handlebars.parse(indexTemplate);
-    const indexHtmlContent = handlebars.compile(indexTemplate)({
-      challengeUrls,
-    });
-    fs.writeFileSync(join(__dirname, "index.html"), indexHtmlContent);
+  log("  Copying files from " + challengeDistFolder + " to " + __dirname);
+  copyFiles(
+    [challengeDistFolder, join(__dirname, folder.name)],
+    { all: true, up: 4 },
+    () => {}
+  );
+  log("");
 
-    console.log("All challenges built successfully");
-  }
+  challengeNames.push(folder.name);
 });
+
+if (challengeNames.length > 0) {
+  challengeUrls = [];
+  challengeNames.map((name) => {
+    const label = name
+      .replace(/\-/g, " ")
+      .split(" ")
+      .map((word) => word[0].toUpperCase() + word.slice(1))
+      .join(" ");
+    challengeUrls.push({ url: name, label });
+  });
+
+  log("");
+  log(chalk.cyan("======================="));
+  log(chalk.cyan("Generating index.html"));
+  log(chalk.cyan("======================="));
+  const indexTemplate = fs.readFileSync(
+    join(__dirname, "index.template.html"),
+    "utf8"
+  );
+  handlebars.parse(indexTemplate);
+  const indexHtmlContent = handlebars.compile(indexTemplate)({
+    challengeUrls,
+  });
+  fs.writeFileSync(join(__dirname, "index.html"), indexHtmlContent);
+}
