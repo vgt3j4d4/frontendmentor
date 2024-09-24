@@ -98,7 +98,7 @@ function minimizeCss() {
   });
 }
 
-function generateIndex() {
+function generateIndexHtml() {
   log(chalk.cyan("====================="));
   log(chalk.cyan("Generating index.html"));
   log(chalk.cyan("====================="));
@@ -133,7 +133,7 @@ function generateIndex() {
   buildAllChallenges();
   removePreviousChallenges();
   copyChallenges(() => {
-    minimizeCss();
-    generateIndex();
+    // minimizeCss();
+    generateIndexHtml();
   });
 })();
