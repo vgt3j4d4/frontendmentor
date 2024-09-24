@@ -11,11 +11,6 @@ const CleanCSS = require("clean-css");
 const log = console.log;
 const CHALLENGES_PATH = "../challenges";
 
-let challengeFilePath,
-  challengesFilePaths = [],
-  challengeNames = [],
-  challengeUrls = [];
-
 function extractLabelAndUrl(name) {
   const label = name
     .replace(/\-/g, " ")
@@ -25,25 +20,25 @@ function extractLabelAndUrl(name) {
   return { label, url: name };
 }
 
-function buildAllChallenges() {
-  log(chalk.cyan("======================="));
-  log(chalk.cyan("Building all challenges"));
-  log(chalk.cyan("======================="));
-  challengesFilePaths.map((challengeFolder) => {
-    log(chalk.green(`  Running 'npm run dist' on ${challengeFolder}`));
+function build(challengeLocations) {
+  log(chalk.cyan("==================="));
+  log(chalk.cyan("Building challenges"));
+  log(chalk.cyan("==================="));
+  challengeLocations.map((location) => {
+    log(chalk.green(`  Running 'npm run dist' on ${location}`));
     cp.spawn(npmCmd, ["run", "dist"], {
       env: process.env,
-      cwd: challengeFolder,
+      cwd: location,
       stdio: "inherit",
     });
   });
 }
 
-function removePreviousChallenges() {
+function removePrevious(challenges) {
   log(chalk.cyan("============================"));
   log(chalk.cyan("Removing previous challenges"));
   log(chalk.cyan("============================"));
-  challengeNames.map((name) => {
+  challenges.map((name) => {
     let folder = join(__dirname, name);
     log(chalk.green(`  Removing ${folder}`));
     try {
@@ -54,51 +49,53 @@ function removePreviousChallenges() {
   });
 }
 
-function copyChallenges(callback) {
+function copy(challenges, challengeLocations, callbackFn) {
   log(chalk.cyan("=================="));
   log(chalk.cyan("Copying challenges"));
   log(chalk.cyan("=================="));
-  const promises = challengesFilePaths.map((challengeFolder, index) => {
+  const promises = challengeLocations.map((location, index) => {
     return new Promise((resolve) => {
-      let sourceFolder = join(challengeFolder, "dist");
+      let sourceFolder = join(location, "dist");
       log(chalk.green(`  Copying files FROM ${sourceFolder} TO ${__dirname}`));
       copyFiles(
-        [join(sourceFolder, "/**/*"), join(__dirname, challengeNames[index])],
+        [join(sourceFolder, "/**/*"), join(__dirname, challenges[index])],
         { all: true, up: 4 },
         resolve
       );
     });
   });
-  Promise.all(promises).then(callback);
+  Promise.all(promises).then(callbackFn);
 }
 
-function minimizeCss() {
+function minimizeCss(challenges) {
   log(chalk.cyan("=================="));
   log(chalk.cyan("Minimize CSS files"));
   log(chalk.cyan("=================="));
-  challengeNames.map((name) => {
+  challenges.map((name) => {
     let cssFolder = join(__dirname, name, "css");
+    if (!fs.existsSync(cssFolder) || !fs.statSync(cssFolder).isDirectory()) {
+      log(chalk.red(`  Error: CSS folder not found for ${cssFolder}`));
+      return;
+    }
+
     fs.readdirSync(cssFolder, {
       withFileTypes: true,
     }).forEach((file) => {
       if (!file.isFile() || !file.name.endsWith(".css")) return;
 
-      let sourceFile = join(cssFolder, file.name);
-      let destinationFile = join(
-        cssFolder,
-        file.name.replace(".css", ".min.css")
-      );
-      log(chalk.green(`  Minifying ${sourceFile}`));
+      let cssFile = join(cssFolder, file.name);
+      let minifiedFile = join(cssFolder, file.name.replace(".css", ".min.css"));
+      log(chalk.green(`  Minifying ${cssFile}`));
       fs.writeFileSync(
-        destinationFile,
-        new CleanCSS().minify(fs.readFileSync(sourceFile, "utf8")).styles
+        minifiedFile,
+        new CleanCSS().minify(fs.readFileSync(cssFile, "utf8")).styles
       );
-      fs.renameSync(destinationFile, sourceFile);
+      fs.renameSync(minifiedFile, cssFile);
     });
   });
 }
 
-function generateIndexHtml() {
+function generateHtml({ urls }) {
   log(chalk.cyan("====================="));
   log(chalk.cyan("Generating index.html"));
   log(chalk.cyan("====================="));
@@ -107,33 +104,37 @@ function generateIndexHtml() {
     "utf8"
   );
   handlebars.parse(indexTemplate);
-  const indexHtmlContent = handlebars.compile(indexTemplate)({ challengeUrls });
-  fs.writeFileSync(join(__dirname, "index.html"), indexHtmlContent);
+  const content = handlebars.compile(indexTemplate)({ urls });
+  fs.writeFileSync(join(__dirname, "index.html"), content);
   log(chalk.green("Done!"));
 }
 
 (function main() {
+  const challengeLocations = [],
+    challenges = [],
+    urls = [];
+
   fs.readdirSync(CHALLENGES_PATH, { withFileTypes: true }).forEach((folder) => {
     if (!folder.isDirectory()) return;
 
-    challengeFilePath = join(CHALLENGES_PATH, folder.name);
+    let path = join(CHALLENGES_PATH, folder.name);
     // Ensure path has package.json
-    if (!fs.existsSync(join(challengeFilePath, "package.json"))) return;
+    if (!fs.existsSync(join(path, "package.json"))) return;
 
-    challengesFilePaths.push(challengeFilePath);
-    challengeNames.push(folder.name);
-    challengeUrls.push(extractLabelAndUrl(folder.name));
+    challengeLocations.push(path);
+    challenges.push(folder.name);
+    urls.push(extractLabelAndUrl(folder.name));
   });
 
-  if (challengeNames.length === 0) {
+  if (challenges.length === 0) {
     log(chalk.red("No challenges found"));
     return;
   }
 
-  buildAllChallenges();
-  removePreviousChallenges();
-  copyChallenges(() => {
-    // minimizeCss();
-    generateIndexHtml();
+  build(challengeLocations);
+  removePrevious(challenges);
+  copy(challenges, challengeLocations, () => {
+    minimizeCss(challenges);
+    generateHtml({ urls });
   });
 })();
