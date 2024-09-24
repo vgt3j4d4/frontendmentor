@@ -93,8 +93,6 @@ function minimizeCss() {
         destinationFile,
         new CleanCSS().minify(fs.readFileSync(sourceFile, "utf8")).styles
       );
-      fs.unlinkSync(sourceFile);
-      // fs.unlinkSync(sourceFile + ".map"); // remove source map
       fs.renameSync(destinationFile, sourceFile);
     });
   });
