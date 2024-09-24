@@ -26,10 +26,9 @@ function build(challengeLocations) {
   log(chalk.cyan("==================="));
   challengeLocations.map((location) => {
     log(chalk.green(`  Running 'npm run dist' on ${location}`));
-    cp.spawn(npmCmd, ["run", "dist"], {
-      env: process.env,
+    cp.execSync(`npm run dist`, {
       cwd: location,
-      stdio: "inherit",
+      env: process.env,
     });
   });
 }
@@ -55,10 +54,13 @@ function copy(challenges, challengeLocations, callbackFn) {
   log(chalk.cyan("=================="));
   const promises = challengeLocations.map((location, index) => {
     return new Promise((resolve) => {
-      let sourceFolder = join(location, "dist");
-      log(chalk.green(`  Copying files FROM ${sourceFolder} TO ${__dirname}`));
+      const sourceFolder = join(location, "dist");
+      const targetFolder = join(__dirname, challenges[index]);
+      log(
+        chalk.green(`  Copying files FROM ${sourceFolder} TO ${targetFolder}`)
+      );
       copyFiles(
-        [join(sourceFolder, "/**/*"), join(__dirname, challenges[index])],
+        [join(sourceFolder, "/**/*"), targetFolder],
         { all: true, up: 4 },
         resolve
       );

@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Design preview for the QR code component coding challenge",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dist": "npx copyfiles index.html css/* images/* fonts/* dist"
   },
   "devDependencies": {
