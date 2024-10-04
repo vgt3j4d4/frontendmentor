@@ -1,0 +1,14 @@
+{
+  "name": "article-preview",
+  "version": "1.0.0",
+  "description": "Design preview for the Article preview component coding challenge",
+  "scripts": {
+    "dist": "npx copyfiles index.html css/* images/* fonts/* dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "copyfiles": "^2.4.1"
+  }
+}

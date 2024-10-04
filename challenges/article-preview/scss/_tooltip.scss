@@ -1,0 +1,21 @@
+@use "variables" as v;
+@use "functions" as fn;
+
+.tooltip {
+  position: absolute;
+  top: -#{fn.rem(80)};
+  right: -#{fn.rem(108)};
+  width: fn.rem(248);
+  border-radius: fn.rem(10);
+
+  &::after {
+    content: " ";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -#{fn.rem(12)};
+    border-width: fn.rem(12);
+    border-style: solid;
+    border-color: v.$color-primary transparent transparent transparent;
+  }
+}

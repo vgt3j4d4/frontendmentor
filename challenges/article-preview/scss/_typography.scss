@@ -1,0 +1,26 @@
+@use "variables" as v;
+@use "functions" as fn;
+
+@font-face {
+  font-family: "Manrope";
+  src: url("../fonts/Manrope-VariableFont_wght.ttf");
+  font-display: swap;
+}
+
+@mixin text-preset-1 {
+  font-weight: 700; // Bold
+  line-height: fn.rem(24);
+  letter-spacing: fn.rem(0.2);
+}
+
+@mixin text-preset-2 {
+  font-weight: 700; // Bold
+  line-height: fn.rem(20);
+  letter-spacing: fn.rem(0.12);
+}
+
+@mixin text-preset-3 {
+  font-weight: 500; // Medium
+  line-height: fn.rem(20);
+  letter-spacing: fn.rem(0.12);
+}

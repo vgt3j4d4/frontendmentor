@@ -1,0 +1,155 @@
+@use "reset";
+@use "variables" as v;
+@use "functions" as fn;
+@use "typography" as ty;
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: v.$fs;
+  font-family: "Manrope", sans-serif, system-ui;
+  background-color: v.$color-bg-body;
+}
+
+.btn-share {
+  width: fn.rem(32);
+  height: fn.rem(32);
+  border: 0;
+  border-radius: 50%;
+  background-image: url("../images/icon-share.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.card {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: fn.rem(327);
+
+  &__header {
+    width: fn.rem(327);
+    height: fn.rem(200);
+    border-top-left-radius: fn.rem(10);
+    border-top-right-radius: fn.rem(10);
+    overflow: hidden;
+
+    &-image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__content {
+    padding: fn.rem(36) fn.rem(32) fn.rem(20) fn.rem(32);
+    background-color: v.$color-bg-content;
+    border-bottom-left-radius: fn.rem(10);
+    border-bottom-right-radius: fn.rem(10);
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.article {
+  max-width: fn.rem(445);
+
+  &__title {
+    color: v.$color-primary;
+    @include ty.text-preset-1;
+  }
+
+  &__description {
+    text-wrap: initial;
+    color: v.$color-secondary;
+    margin: fn.rem(12) 0 fn.rem(32) 0;
+    font-size: fn.rem(13);
+    @include ty.text-preset-3;
+  }
+}
+
+.avatar {
+  &__image {
+    width: fn.rem(40);
+    height: fn.rem(40);
+    border-radius: 50%;
+  }
+
+  &__info {
+    flex: 1;
+    margin-left: fn.rem(16);
+
+    &-name {
+      color: v.$color-primary;
+      font-size: fn.rem(13);
+      @include ty.text-preset-2;
+    }
+
+    &-date {
+      color: v.$color-tertiary;
+      font-size: fn.rem(13);
+      @include ty.text-preset-3;
+    }
+  }
+}
+
+.share-to {
+  display: flex;
+  position: relative;
+  align-items: center;
+  gap: fn.rem(21);
+  width: 100%;
+  padding: fn.rem(22) fn.rem(32);
+  background-color: v.$color-primary;
+
+  &__title {
+    display: inline-block;
+    color: v.$color-tertiary;
+    font-size: fn.rem(13);
+    @include ty.text-preset-3;
+    letter-spacing: fn.rem(5);
+  }
+
+  &__list {
+    display: flex;
+    gap: fn.rem(16);
+    padding: 0;
+    margin: 0;
+    margin-right: auto;
+    list-style: none;
+
+    &-item {
+      display: inline-block;
+    }
+  }
+
+  &--at-bottom {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-bottom-left-radius: fn.rem(10);
+    border-bottom-right-radius: fn.rem(10);
+  }
+
+  &--hidden {
+    display: none;
+  }
+}
+
+.share-icon {
+  display: block;
+  width: fn.rem(20);
+  height: fn.rem(20);
+}
+
+@media (width < fn.rem(v.$breakpoint-landscape)) {
+  .share-to--at-tooltip {
+    display: none;
+  }
+}

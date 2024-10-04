@@ -1,0 +1,54 @@
+@use "tooltip";
+@use "variables" as v;
+@use "functions" as fn;
+
+.card {
+  flex-direction: row;
+  width: fn.rem(740);
+  height: fn.rem(280);
+
+  &__header {
+    width: fn.rem(285);
+    height: 100%;
+    border-radius: 0; // reset
+    border-top-left-radius: fn.rem(10);
+    border-bottom-left-radius: fn.rem(10);
+
+    &-image {
+      width: fn.rem(350);
+    }
+  }
+
+  &__content {
+    flex: 1;
+    border-radius: 0; // reset
+    border-top-right-radius: fn.rem(10);
+    border-bottom-right-radius: fn.rem(10);
+    padding: fn.rem(32) fn.rem(40);
+  }
+
+  &__footer {
+    position: relative;
+  }
+}
+
+.article {
+  &__title {
+    font-size: fn.rem(20);
+    line-height: fn.rem(28);
+  }
+
+  &__description {
+    margin: fn.rem(12) 0 fn.rem(20) 0;
+  }
+}
+
+.share-to {
+  padding: fn.rem(18) fn.rem(26) fn.rem(17) fn.rem(37);
+}
+
+@media (width >= fn.rem(v.$breakpoint-landscape)) {
+  .share-to--at-bottom {
+    display: none;
+  }
+}

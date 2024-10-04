@@ -1,0 +1,61 @@
+.tooltip {
+  position: absolute;
+  top: -5rem;
+  right: -6.75rem;
+  width: 15.5rem;
+  border-radius: 0.625rem;
+}
+.tooltip::after {
+  content: " ";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -0.75rem;
+  border-width: 0.75rem;
+  border-style: solid;
+  border-color: #48556a transparent transparent transparent;
+}
+
+.card {
+  flex-direction: row;
+  width: 46.25rem;
+  height: 17.5rem;
+}
+.card__header {
+  width: 17.8125rem;
+  height: 100%;
+  border-radius: 0;
+  border-top-left-radius: 0.625rem;
+  border-bottom-left-radius: 0.625rem;
+}
+.card__header-image {
+  width: 21.875rem;
+}
+.card__content {
+  flex: 1;
+  border-radius: 0;
+  border-top-right-radius: 0.625rem;
+  border-bottom-right-radius: 0.625rem;
+  padding: 2rem 2.5rem;
+}
+.card__footer {
+  position: relative;
+}
+
+.article__title {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+.article__description {
+  margin: 0.75rem 0 1.25rem 0;
+}
+
+.share-to {
+  padding: 1.125rem 1.625rem 1.0625rem 2.3125rem;
+}
+
+@media (width >= 54.375rem) {
+  .share-to--at-bottom {
+    display: none;
+  }
+}/*# sourceMappingURL=styles-landscape.css.map */
