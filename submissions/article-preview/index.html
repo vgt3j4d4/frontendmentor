@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+  <link rel="stylesheet" href="./css/styles.css" />
+  <link rel="stylesheet" href="./css/styles-landscape.css" media="(min-width: 870px)" />
+
+  <title>Frontend Mentor | Article preview component</title>
+
+  <script src="./js/script.js" defer></script>
+</head>
+
+<body>
+  <main class="card">
+    <div class="card__header">
+      <img class="card__header-image" src="./images/drawers.jpg"
+        alt="A green furniture in a white painted room having 2 frames and a base on top of it" />
+    </div>
+
+    <div class="card__content">
+      <section class="article">
+        <h1 class="article__title">
+          Shift the overall look and feel by adding these wonderful touches to
+          furniture in your home
+        </h1>
+        <p class="article__description">
+          Ever been in a room and felt like something was missing? Perhaps it
+          felt slightly bare and uninviting. I’ve got some simple tips to help
+          you make any room feel complete.
+        </p>
+      </section>
+
+      <footer class="card__footer avatar">
+        <img class="avatar__image" src="./images/avatar-michelle.jpg" alt="A rounded image of Michelle Appleton" />
+        <div class="avatar__info">
+          <h2 class="avatar__info-name">Michelle Appleton</h2>
+          <time class="avatar__info-date">28 Jun 2020</time>
+        </div>
+
+        <div id="share-links-container-tooltip" class="tooltip share-to share-to--at-tooltip share-to--hidden">
+          <h2 class="share-to__title">SHARE</h2>
+          <ul class="share-to__list">
+            <li class="share-to__list-item">
+              <a href="#">
+                <img class="share-icon" src="./images/icon-facebook.svg" alt="Facebook icon" />
+              </a>
+            </li>
+            <li>
+              <a href="#"><img class="share-icon" src="./images/icon-twitter.svg" alt="Twitter icon" />
+              </a>
+            </li>
+            <li>
+              <a href="#"><img class="share-icon" src="./images/icon-pinterest.svg" alt="Pinterest icon" />
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <button id="share-btn" class="btn-share" type="button" aria-label="Share"
+          aria-controls="share-links-container-tooltip share-links-container" aria-expanded="false"></button>
+
+        <div id="share-links-container" class="share-to share-to--at-bottom share-to--hidden">
+          <h2 class="share-to__title">SHARE</h2>
+          <ul class="share-to__list">
+            <li class="share-to__list-item">
+              <a href="#">
+                <img class="share-icon" src="./images/icon-facebook.svg" alt="Facebook icon" />
+              </a>
+            </li>
+            <li>
+              <a href="#"><img class="share-icon" src="./images/icon-twitter.svg" alt="Twitter icon" />
+              </a>
+            </li>
+            <li>
+              <a href="#"><img class="share-icon" src="./images/icon-pinterest.svg" alt="Pinterest icon" />
+              </a>
+            </li>
+          </ul>
+          <button class="btn-share" type="button" aria-label="Share"></button>
+        </div>
+      </footer>
+    </div>
+  </main>
+</body>
+
+</html>
