@@ -1,0 +1,30 @@
+@use "reset";
+@use "typography" as ty;
+@use "variables" as v;
+@use "functions" as fn;
+
+@use "button";
+@use "subscribe-dialog";
+@use "success-dialog";
+
+@use "breakpoints";
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Roboto Regular", sans-serif, system-ui;
+  font-size: v.$fs;
+  background-color: v.$color-pale-navy;
+}
+
+.email-validation-error {
+  color: v.$color-vermilion;
+}
+
+.invalid-email {
+  color: v.$color-vermilion;
+  border-color: v.$color-vermilion;
+  background-color: v.$color-vermilion-light;
+}

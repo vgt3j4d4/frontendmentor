@@ -1,0 +1,91 @@
+@use "typography" as ty;
+@use "variables" as v;
+@use "functions" as fn;
+
+.subscribe-dialog {
+  display: flex;
+  flex-direction: column;
+  width: fn.rem(v.$mobile-dialog-width);
+  min-height: 100dvh;
+  padding: 0;
+  border: none;
+  color: v.$color-dark-navy;
+  background-color: v.$color-white;
+  @include ty.body;
+
+  &__picture {
+    width: 100%;
+    height: fn.rem(284);
+    background-image: url("../images/illustration-sign-up-mobile.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    padding: fn.rem(40) fn.rem(24);
+  }
+
+  &__title {
+    margin-bottom: fn.rem(24);
+    color: v.$color-dark-navy;
+    @include ty.heading;
+    font-size: fn.rem(40);
+  }
+
+  &__description {
+    margin-bottom: fn.rem(24);
+  }
+
+  &__updates {
+    list-style: none;
+    margin: 0;
+    margin-bottom: fn.rem(40);
+    padding: 0;
+
+    &-item {
+      display: flex;
+
+      &::before {
+        content: "";
+        display: inline-block;
+        width: fn.rem(21);
+        height: fn.rem(21);
+        margin-right: fn.rem(16);
+        background-image: url("../images/icon-list.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: fn.rem(10);
+      }
+    }
+  }
+
+  &__form {
+    display: contents;
+
+    &-label {
+      display: flex;
+      justify-content: space-between;
+      @include ty.body-small;
+      font-size: fn.rem(12);
+      margin-bottom: fn.rem(8);
+    }
+
+    &-input {
+      padding: fn.rem(16) fn.rem(24);
+      border-width: 1px;
+      border-radius: fn.rem(8);
+      border-color: v.$color-gray;
+    }
+
+    &-submit {
+      margin-top: fn.rem(24);
+    }
+  }
+}

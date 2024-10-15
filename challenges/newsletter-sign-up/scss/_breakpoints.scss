@@ -1,0 +1,25 @@
+@use "variables" as v;
+@use "functions" as fn;
+
+@media (width >= fn.rem(v.$breakpoint-subscribe-dialog-desktop)) {
+  .subscribe-dialog {
+    min-height: initial;
+  }
+}
+
+@media (width >= fn.rem(v.$breakpoint-success-dialog-desktop)) {
+  .success-dialog {
+    width: fn.rem(v.$breakpoint-success-dialog-desktop);
+    min-height: initial;
+    padding: fn.rem(48) fn.rem(64) fn.rem(64) fn.rem(64);
+    border-radius: fn.rem(36);
+
+    &__title {
+      font-size: fn.rem(56);
+    }
+
+    &__description {
+      margin-bottom: fn.rem(40);
+    }
+  }
+}

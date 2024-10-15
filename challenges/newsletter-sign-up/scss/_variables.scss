@@ -1,0 +1,17 @@
+$fs-value: 16;
+$fs: $fs-value + px;
+
+// color palette
+$color-white: #fff;
+$color-gray: rgb(25 24 43 / 25%);
+$color-pale-navy: #36384d;
+$color-dark-navy: #242742;
+$color-vermilion: rgba(255, 97, 85);
+$color-vermilion-active: rgba(255, 97, 85, 50%);
+$color-vermilion-light: rgba(255, 97, 85, 15%);
+
+$mobile-dialog-width: 375;
+
+// breakpoints
+$breakpoint-subscribe-dialog-desktop: 928;
+$breakpoint-success-dialog-desktop: 504;

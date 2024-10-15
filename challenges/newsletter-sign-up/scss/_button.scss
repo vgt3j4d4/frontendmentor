@@ -1,0 +1,18 @@
+@use "typography" as ty;
+@use "variables" as v;
+@use "functions" as fn;
+
+.btn-primary {
+  padding: fn.rem(18) fn.rem(46);
+  border: 0;
+  border-radius: fn.rem(8);
+  color: v.$color-white;
+  background-color: v.$color-dark-navy;
+  @include ty.body-bold;
+
+  &:focus,
+  &:hover {
+    background-color: v.$color-vermilion;
+    box-shadow: 0px 16px 32px 0px v.$color-vermilion-active;
+  }
+}

@@ -1,0 +1,31 @@
+@use "functions" as fn;
+
+@font-face {
+  font-family: "Roboto Regular";
+  src: url("../fonts/Roboto-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Roboto Bold";
+  src: url("../fonts/Roboto-Bold.ttf");
+}
+
+@mixin heading {
+  font-family: "Roboto Bold", sans-serif, system-ui;
+  line-height: 100%;
+}
+
+@mixin body {
+  font-family: "Roboto", sans-serif, system-ui;
+  line-height: 150%;
+}
+
+@mixin body-bold {
+  font-family: "Roboto Bold", sans-serif, system-ui;
+  line-height: 150%;
+}
+
+@mixin body-small {
+  font-family: "Roboto Bold", sans-serif, system-ui;
+  line-height: 150%;
+}

@@ -1,0 +1,28 @@
+@use "variables" as v;
+@use "functions" as fn;
+
+.subscribe-dialog {
+  flex-direction: row-reverse;
+  gap: fn.rem(64);
+  width: fn.rem(928);
+  padding: fn.rem(24) fn.rem(24) fn.rem(24) fn.rem(64);
+  border-radius: fn.rem(36);
+  box-shadow: 0px 15px 60px 0px rgba(0, 0, 0, 25%);
+
+  &__picture {
+    width: fn.rem(400);
+    height: fn.rem(593);
+    border-radius: fn.rem(16);
+    background-image: url("../images/illustration-sign-up-desktop.svg");
+  }
+
+  &__content {
+    justify-content: center;
+    max-width: fn.rem(376);
+    padding: 0;
+  }
+
+  &__title {
+    font-size: fn.rem(56);
+  }
+}
