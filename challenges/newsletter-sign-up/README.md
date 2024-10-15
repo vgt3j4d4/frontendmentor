@@ -40,7 +40,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [Frontend Mentor](https://www.frontendmentor.io/solutions/newsletter-sign-up-form-with-success-message-pttQ4qqn0r)
 - Live Site URL: [Netlify](https://frontendmentor-gonzalotejada.netlify.app/newsletter-sign-up/)
 
 ## My process
