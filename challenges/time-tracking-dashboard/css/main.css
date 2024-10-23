@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply flex items-center justify-center
+  min-h-screen 
+  bg-[#0E1323]
+  font-rubik;
+}
+
+.activity-report {
+  @apply grid grid-rows-1 grid-cols-1 gap-[30px]
+  lg:grid-rows-2 lg:grid-cols-4
+  w-[327px]
+  lg:w-[1100px] lg:h-[518px]
+  mx-6 my-20
+  text-white;
+}
+
+.activity-report__header {
+  @apply row-span-2
+  rounded-2xl
+  bg-[#1C204B];
+}
+
+.activity-report__person {
+  @apply flex flex-row items-center gap-5
+  lg:flex-col lg:gap-11 lg:items-start
+  px-8 py-9
+  lg:pt-[37px] lg:pr-[84px] lg:pb-[80px] lg:pl-[37px]
+  rounded-[15px]
+  bg-[#5747EA];
+}
+
+.activity-report__avatar {
+  @apply w-20 h-20
+  border-4 border-white rounded-full;
+}
+
+.activity-report__person-label {
+  @apply text-sm text-[#BBC0FF];
+}
+
+.activity-report__person-name {
+  @apply text-[24px]
+  lg:text-4xl
+  font-rubik-light;
+}
+
+.activity-report__frequency {
+  @apply flex flex-row justify-evenly gap-[21px]
+  lg:flex-col
+  py-6
+  lg:p-8 lg:pt-[26px]
+  text-[#7078C9];
+}
+
+.activity-report__frequency-item {
+  @apply hover:text-white;
+}
+
+.activity-report__frequency-item--active {
+  @apply text-white;
+}
+
+.activity-card {
+  @apply relative flex flex-col justify-end
+  rounded-2xl
+  bg-[#1C204B];
+}
+
+.activity-card__divider {
+  @apply absolute top-0 left-0
+  w-full h-[100px]
+  rounded-t-[15px]
+  bg-no-repeat bg-right_20-top_-10 z-10;
+}
+
+.activity-card__divider--work {
+  @apply bg-[#FF8B64] bg-[url('../images/icon-work.svg')] bg-[length:79px_79px];
+}
+
+.activity-card__divider--play {
+  @apply bg-[#55C2E6] bg-[url('../images/icon-play.svg')] bg-[length:76px_77px];
+}
+
+.activity-card__divider--study {
+  @apply bg-[#FF5E7D] bg-[url('../images/icon-study.svg')] bg-[length:79px_79px];
+}
+
+.activity-card__divider--exercise {
+  @apply bg-[#4BCF82] bg-[url('../images/icon-exercise.svg')] bg-[length:81px_55px] bg-right_20-top_-2;
+}
+
+.activity-card__divider--social {
+  @apply bg-[#7335D2] bg-[url('../images/icon-social.svg')] bg-[length:75px_100px];
+}
+
+.activity-card__divider--work {
+  @apply bg-[#FF8B64] bg-[url('../images/icon-work.svg')] bg-[length:79px_79px];
+}
+
+.activity-card__divider--self-care {
+  @apply bg-[#F1C75B] bg-[url('../images/icon-self-care.svg')] bg-[length:67px_67px];
+}
+
+.activity-card__content {
+  @apply relative
+  mt-11
+  px-8 py-8
+  bg-inherit rounded-[15px]
+  z-10
+  hover:bg-[#33397A];
+}
+
+.activity-card__header {
+  @apply flex items-center justify-between;
+}
+
+.activity-card__header-title {
+  @apply text-lg font-rubik-medium;
+}
+
+.activity-card__header-more-btn {
+  @apply w-5 h-5
+  bg-[url('../images/icon-ellipsis.svg')] bg-no-repeat bg-contain bg-center
+  cursor-pointer;
+}
+
+.activity-card__values {
+  @apply flex flex-row items-center justify-between
+  lg:flex-col lg:items-start lg:justify-start lg:gap-2
+  mt-2
+  lg:mt-6;
+}
+
+.activity-card__current-value {
+  @apply text-3xl
+  lg:text-[56px] lg:leading-none
+  font-rubik-light;
+}
+
+.activity-card__previous-value {
+  @apply text-base text-[#BBC0FF];
+}

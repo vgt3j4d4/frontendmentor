@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Frontend Mentor | Time tracking dashboard">
+
+  <title>Frontend Mentor | Time tracking dashboard</title>
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <style>
+    @font-face {
+      font-family: "Rubik Light";
+      src: url("../fonts/Rubik-Light.ttf");
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Rubik Regular";
+      src: url("../fonts/Rubik-Regular.ttf");
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Rubik Medium";
+      src: url("../fonts/Rubik-Medium.ttf");
+      font-display: swap;
+    }
+  </style>
+  <link rel="stylesheet" href="./css/styles.css">
+
+  <script type="text/javascript" src="./js/main.js"></script>
+</head>
+
+<body>
+
+  <main class="activity-report">
+
+    <div class="activity-report__header">
+      <div class="activity-report__person">
+        <img class="activity-report__avatar" src="./images/image-jeremy.png" alt="Avatar image of Jeremy Robson" />
+        <div class="activity-report__person-text">
+          <span class="activity-report__person-label">Report for</span>
+          <h1 class="activity-report__person-name">Jeremy Robson</h1>
+        </div>
+      </div>
+
+      <ol class="activity-report__frequency">
+        <li class="activity-report__frequency-item">
+          <a class="frequency-btn" href="" role="button" data-frequency="daily">Daily</a>
+        </li>
+        <li class="activity-report__frequency-item">
+          <a class="frequency-btn" href="" role="button" data-frequency="weekly">Weekly</a>
+        </li>
+        <li class="activity-report__frequency-item">
+          <a class="frequency-btn" href="" role="button" data-frequency="monthly">Monthly</a>
+        </li>
+      </ol>
+    </div>
+
+    <div class="activity-card">
+      <div class="activity-card__divider activity-card__divider--work"></div>
+      <div class="activity-card__content" data-title="Work">
+        <div class="activity-card__header">
+          <span class="activity-card__header-title">Work</span>
+          <button type="button" class="activity-card__header-more-btn" aria-label="More options"></button>
+        </div>
+        <div class="activity-card__values">
+          <div class="activity-card__current-value">0hrs</div>
+          <div class="activity-card__previous-value">0hrs</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="activity-card">
+      <div class="activity-card__divider activity-card__divider--play"></div>
+      <div class="activity-card__content" data-title="Play">
+        <div class="activity-card__header">
+          <span class="activity-card__header-title">Play</span>
+          <button type="button" class="activity-card__header-more-btn" aria-label="More options"></button>
+        </div>
+        <div class="activity-card__values">
+          <div class="activity-card__current-value">0hrs</div>
+          <div class="activity-card__previous-value">0hrs</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="activity-card">
+      <div class="activity-card__divider activity-card__divider--study"></div>
+      <div class="activity-card__content" data-title="Study">
+        <div class="activity-card__header">
+          <span class="activity-card__header-title">Study</span>
+          <button type="button" class="activity-card__header-more-btn" aria-label="More options"></button>
+        </div>
+        <div class="activity-card__values">
+          <div class="activity-card__current-value">0hrs</div>
+          <div class="activity-card__previous-value">0hrs</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="activity-card">
+      <div class="activity-card__divider activity-card__divider--exercise"></div>
+      <div class="activity-card__content" data-title="Exercise">
+        <div class="activity-card__header">
+          <span class="activity-card__header-title">Exercise</span>
+          <button type="button" class="activity-card__header-more-btn" aria-label="More options"></button>
+        </div>
+        <div class="activity-card__values">
+          <div class="activity-card__current-value">0hrs</div>
+          <div class="activity-card__previous-value">0hrs</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="activity-card">
+      <div class="activity-card__divider activity-card__divider--social"></div>
+      <div class="activity-card__content" data-title="Social">
+        <div class="activity-card__header">
+          <span class="activity-card__header-title">Social</span>
+          <button type="button" class="activity-card__header-more-btn" aria-label="More options"></button>
+        </div>
+        <div class="activity-card__values">
+          <div class="activity-card__current-value">0hrs</div>
+          <div class="activity-card__previous-value">0hrs</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="activity-card">
+      <div class="activity-card__divider activity-card__divider--self-care"></div>
+      <div class="activity-card__content" data-title="Self Care">
+        <div class="activity-card__header">
+          <span class="activity-card__header-title">Self Care</span>
+          <button type="button" class="activity-card__header-more-btn" aria-label="More options"></button>
+        </div>
+        <div class="activity-card__values">
+          <div class="activity-card__current-value">0hrs</div>
+          <div class="activity-card__previous-value">0hrs</div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</body>
+
+</html>
