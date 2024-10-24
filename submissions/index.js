@@ -1,8 +1,9 @@
 const fs = require("fs");
-const join = require("path").join;
+const path = require("path");
+const join = path.join;
 const cp = require("child_process");
-const handlebars = require("handlebars");
-const chalk = require("chalk");
+const Handlebars = require("handlebars");
+const Chalk = require("chalk");
 const CleanCSS = require("clean-css");
 const UglifyJS = require("uglify-js");
 
@@ -15,10 +16,15 @@ const UGLIFY_OPTIONS = {
     preamble: "/* uglified */",
   },
 };
+const PARENT_PATH = path.resolve(__dirname, "..");
+
+Handlebars.registerHelper("inc", function (value, _options) {
+  return parseInt(value) + 1;
+});
 
 function build(challengeLocations) {
   challengeLocations.map((location) => {
-    log(chalk.green(`  Running 'npm run dist' on ${location}`));
+    log(Chalk.green(`  Running 'npm run dist' on ${location}`));
     cp.execSync(`npm run dist`, {
       cwd: location,
       env: process.env,
@@ -29,11 +35,11 @@ function build(challengeLocations) {
 function removePrevious(challenges) {
   challenges.map((name) => {
     let folder = join(__dirname, name);
-    log(chalk.green(`  Removing ${folder}`));
+    log(Chalk.green(`  Removing ${folder}`));
     try {
       fs.rmSync(folder, { recursive: true, force: true });
     } catch (error) {
-      log(chalk.red(`  Error removing ${folder}`));
+      log(Chalk.red(`  Error removing ${folder}`));
     }
   });
 }
@@ -42,7 +48,7 @@ function copy(challenges, challengeLocations) {
   challengeLocations.map((location, index) => {
     const sourceFolder = join(location, "dist");
     const targetFolder = join(__dirname, challenges[index]);
-    log(chalk.green(`  Copying files FROM ${sourceFolder} TO ${targetFolder}`));
+    log(Chalk.green(`  Copying files FROM ${sourceFolder} TO ${targetFolder}`));
     fs.cpSync(sourceFolder, targetFolder, { recursive: true, force: true });
   });
 }
@@ -51,7 +57,7 @@ function minimizeCss(challenges) {
   challenges.map((name) => {
     let cssFolder = join(__dirname, name, "css");
     if (!fs.existsSync(cssFolder) || !fs.statSync(cssFolder).isDirectory()) {
-      log(chalk.red(`  Error: CSS folder not found for ${cssFolder}`));
+      log(Chalk.red(`  Error: CSS folder not found for ${cssFolder}`));
       return;
     }
 
@@ -62,7 +68,7 @@ function minimizeCss(challenges) {
 
       let cssFile = join(cssFolder, file.name);
       let minifiedFile = join(cssFolder, file.name.replace(".css", ".min.css"));
-      log(chalk.green(`  Minifying ${cssFile}`));
+      log(Chalk.green(`  Minifying ${cssFile}`));
       fs.writeFileSync(
         minifiedFile,
         new CleanCSS().minify(fs.readFileSync(cssFile, "utf8")).styles
@@ -84,7 +90,7 @@ function uglifyJS(challenges) {
     }).forEach((file) => {
       if (!file.isFile() || !file.name.endsWith(".js")) return;
       let jsFile = join(jsFolder, file.name);
-      log(chalk.green(`  Uglifying ${jsFile}`));
+      log(Chalk.green(`  Uglifying ${jsFile}`));
       fs.writeFileSync(
         jsFile,
         UglifyJS.minify(fs.readFileSync(jsFile, "utf8"), UGLIFY_OPTIONS).code,
@@ -99,9 +105,21 @@ function generateHtml({ urls }) {
     join(__dirname, "index.template.html"),
     "utf8"
   );
-  handlebars.parse(indexTemplate);
-  const content = handlebars.compile(indexTemplate)({ urls });
+  Handlebars.parse(indexTemplate);
+  const content = Handlebars.compile(indexTemplate)({ urls });
   fs.writeFileSync(join(__dirname, "index.html"), content);
+  log(Chalk.green("Done"));
+}
+
+function updateReadMe(urls) {
+  const readMeTemplate = fs.readFileSync(
+    join(PARENT_PATH, "README.template.md"),
+    "utf8"
+  );
+  Handlebars.parse(readMeTemplate);
+  const content = Handlebars.compile(readMeTemplate)({ urls });
+  fs.writeFileSync(join(PARENT_PATH, "README.md"), content);
+  log(Chalk.green("Done"));
 }
 
 (function main() {
@@ -129,39 +147,42 @@ function generateHtml({ urls }) {
   });
 
   if (challenges.length === 0) {
-    log(chalk.red("No challenges found"));
+    log(Chalk.red("No challenges found"));
     return;
   }
 
-  log(chalk.cyan("==================="));
-  log(chalk.cyan("Building challenges"));
-  log(chalk.cyan("==================="));
+  log(Chalk.cyan("==================="));
+  log(Chalk.cyan("Building challenges"));
+  log(Chalk.cyan("==================="));
   build(challengeLocations);
 
-  log(chalk.cyan("============================"));
-  log(chalk.cyan("Removing previous challenges"));
-  log(chalk.cyan("============================"));
+  log(Chalk.cyan("============================"));
+  log(Chalk.cyan("Removing previous challenges"));
+  log(Chalk.cyan("============================"));
   removePrevious(challenges);
 
-  log(chalk.cyan("=================="));
-  log(chalk.cyan("Copying challenges"));
-  log(chalk.cyan("=================="));
+  log(Chalk.cyan("=================="));
+  log(Chalk.cyan("Copying challenges"));
+  log(Chalk.cyan("=================="));
   copy(challenges, challengeLocations);
 
-  log(chalk.cyan("=================="));
-  log(chalk.cyan("Minimize CSS files"));
-  log(chalk.cyan("=================="));
+  log(Chalk.cyan("=================="));
+  log(Chalk.cyan("Minimize CSS files"));
+  log(Chalk.cyan("=================="));
   minimizeCss(challenges);
 
-  log(chalk.cyan("=================="));
-  log(chalk.cyan("Minimize JS files"));
-  log(chalk.cyan("=================="));
+  log(Chalk.cyan("=================="));
+  log(Chalk.cyan("Uglify JS files"));
+  log(Chalk.cyan("=================="));
   uglifyJS(challenges);
 
-  log(chalk.cyan("====================="));
-  log(chalk.cyan("Generating index.html"));
-  log(chalk.cyan("====================="));
+  log(Chalk.cyan("====================="));
+  log(Chalk.cyan("Generating index.html"));
+  log(Chalk.cyan("====================="));
   generateHtml({ urls });
 
-  log(chalk.green("Done!"));
+  // log(Chalk.cyan("====================="));
+  // log(Chalk.cyan("Update README.md file"));
+  // log(Chalk.cyan("====================="));
+  // updateReadMe(urls);
 })();

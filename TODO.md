@@ -1,8 +1,0 @@
-- [X] Check why the product-preview-card has some weird glitches while loading the images in netlify  
-- [X] Fix recipe-page challenge table  
-- [X] Fix product preview card challenge landscape display on mobile
-- [X] Fix HTML report on product preview card challenge
-- [X] Fix blog preview card challenge display on mobile devices
-- [X] Fix accessibility report on responsive recipe challenge - WONTFIX
-- [X] Fix HTML report on responsive recipe challenge
-- [ ] Fix HTML report on social links profile challenge

@@ -6,17 +6,9 @@ This uses a simple Node.js code to generate challenges folders inside submission
 
 ## Challenges
 
-1. Article Preview
-2. Blog Preview Card
-3. Four Card Feature Section
-4. Meet Landing Page
-5. Newsletter Sign Up
-6. Product Preview Card
-7. Qr Code Component
-8. Recipe Page
-9. Social Links Profile
-10. Testimonials Grid Section
-11. Time Tracking Dashboard
+{{#each urls}}
+{{inc @index}}. {{this.label}}
+{{/each}}
 
 ## How to use
 
