@@ -181,8 +181,8 @@ function updateReadMe(urls) {
   log(Chalk.cyan("====================="));
   generateHtml({ urls });
 
-  // log(Chalk.cyan("====================="));
-  // log(Chalk.cyan("Update README.md file"));
-  // log(Chalk.cyan("====================="));
-  // updateReadMe(urls);
+  log(Chalk.cyan("====================="));
+  log(Chalk.cyan("Update README.md file"));
+  log(Chalk.cyan("====================="));
+  updateReadMe(urls);
 })();
