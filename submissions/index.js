@@ -1,23 +1,20 @@
 const fs = require("fs");
 const join = require("path").join;
-const platform = require("os").platform;
 const cp = require("child_process");
-const npmCmd = platform().startsWith("win") ? "npm.cmd" : "npm";
 const handlebars = require("handlebars");
 const chalk = require("chalk");
 const CleanCSS = require("clean-css");
+const UglifyJS = require("uglify-js");
 
 const log = console.log;
 const CHALLENGES_PATH = "../challenges";
-
-function extractLabelAndUrl(name) {
-  const label = name
-    .replace(/\-/g, " ")
-    .split(" ")
-    .map((word) => word[0].toUpperCase() + word.slice(1))
-    .join(" ");
-  return { label, url: name };
-}
+const UGLIFY_OPTIONS = {
+  toplevel: true,
+  output: {
+    beautify: false,
+    preamble: "/* uglified */",
+  },
+};
 
 function build(challengeLocations) {
   challengeLocations.map((location) => {
@@ -42,7 +39,7 @@ function removePrevious(challenges) {
 }
 
 function copy(challenges, challengeLocations) {
-  const promises = challengeLocations.map((location, index) => {
+  challengeLocations.map((location, index) => {
     const sourceFolder = join(location, "dist");
     const targetFolder = join(__dirname, challenges[index]);
     log(chalk.green(`  Copying files FROM ${sourceFolder} TO ${targetFolder}`));
@@ -75,6 +72,28 @@ function minimizeCss(challenges) {
   });
 }
 
+function uglifyJS(challenges) {
+  challenges.map((name) => {
+    let jsFolder = join(__dirname, name, "js");
+    if (!fs.existsSync(jsFolder) || !fs.statSync(jsFolder).isDirectory()) {
+      return;
+    }
+
+    fs.readdirSync(jsFolder, {
+      withFileTypes: true,
+    }).forEach((file) => {
+      if (!file.isFile() || !file.name.endsWith(".js")) return;
+      let jsFile = join(jsFolder, file.name);
+      log(chalk.green(`  Uglifying ${jsFile}`));
+      fs.writeFileSync(
+        jsFile,
+        UglifyJS.minify(fs.readFileSync(jsFile, "utf8"), UGLIFY_OPTIONS).code,
+        "utf8"
+      );
+    });
+  });
+}
+
 function generateHtml({ urls }) {
   const indexTemplate = fs.readFileSync(
     join(__dirname, "index.template.html"),
@@ -99,7 +118,14 @@ function generateHtml({ urls }) {
 
     challengeLocations.push(path);
     challenges.push(folder.name);
-    urls.push(extractLabelAndUrl(folder.name));
+    urls.push({
+      label: folder.name
+        .replace(/\-/g, " ")
+        .split(" ")
+        .map((word) => word[0].toUpperCase() + word.slice(1))
+        .join(" "),
+      url: folder.name,
+    });
   });
 
   if (challenges.length === 0) {
@@ -111,25 +137,26 @@ function generateHtml({ urls }) {
   log(chalk.cyan("Building challenges"));
   log(chalk.cyan("==================="));
   build(challengeLocations);
-  log("");
 
   log(chalk.cyan("============================"));
   log(chalk.cyan("Removing previous challenges"));
   log(chalk.cyan("============================"));
   removePrevious(challenges);
-  log("");
 
   log(chalk.cyan("=================="));
   log(chalk.cyan("Copying challenges"));
   log(chalk.cyan("=================="));
   copy(challenges, challengeLocations);
-  log("");
 
   log(chalk.cyan("=================="));
   log(chalk.cyan("Minimize CSS files"));
   log(chalk.cyan("=================="));
   minimizeCss(challenges);
-  log("");
+
+  log(chalk.cyan("=================="));
+  log(chalk.cyan("Minimize JS files"));
+  log(chalk.cyan("=================="));
+  uglifyJS(challenges);
 
   log(chalk.cyan("====================="));
   log(chalk.cyan("Generating index.html"));
