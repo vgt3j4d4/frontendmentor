@@ -45,14 +45,6 @@ strong {
 }
 
 /*** CSS Reset ***/
-@font-face {
-  font-family: "Roboto Regular";
-  src: url("../fonts/Roboto-Regular.ttf");
-}
-@font-face {
-  font-family: "Roboto Bold";
-  src: url("../fonts/Roboto-Bold.ttf");
-}
 .btn-primary {
   padding: 1.125rem 2.875rem;
   border: 0;
@@ -114,6 +106,7 @@ strong {
 .subscribe-dialog__updates-item::before {
   content: "";
   display: inline-block;
+  flex-shrink: 0;
   width: 1.3125rem;
   height: 1.3125rem;
   margin-right: 1rem;

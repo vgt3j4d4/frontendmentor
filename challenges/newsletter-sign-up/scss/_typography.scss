@@ -1,15 +1,5 @@
 @use "functions" as fn;
 
-@font-face {
-  font-family: "Roboto Regular";
-  src: url("../fonts/Roboto-Regular.ttf");
-}
-
-@font-face {
-  font-family: "Roboto Bold";
-  src: url("../fonts/Roboto-Bold.ttf");
-}
-
 @mixin heading {
   font-family: "Roboto Bold", sans-serif, system-ui;
   line-height: 100%;
