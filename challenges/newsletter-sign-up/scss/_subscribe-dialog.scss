@@ -51,6 +51,7 @@
       &::before {
         content: "";
         display: inline-block;
+        flex-shrink: 0; // bugfix: larger text on li.subscribe-dialog__updates-item causes this to shrink
         width: fn.rem(21);
         height: fn.rem(21);
         margin-right: fn.rem(16);
