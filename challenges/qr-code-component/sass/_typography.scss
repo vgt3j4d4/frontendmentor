@@ -1,13 +1,9 @@
-@font-face {
-  font-family: "Outfit";
-  src: url("../fonts/Outfit-VariableFont_wght.ttf");
-  font-weight: 700 400;
-}
+@use "functions" as fn;
 
 /** Outfit Bold */
 @mixin text-preset-1 {
   font-family: "Outfit", sans-serif, system-ui;
-  font-size: rem(22);
+  font-size: fn.rem(22);
   font-weight: 700;
   line-height: 120%;
   letter-spacing: 0;
@@ -16,7 +12,7 @@
 /** Outfit Regular */
 @mixin text-preset-2 {
   font-family: "Outfit", sans-serif, system-ui;
-  font-size: rem(15);
+  font-size: fn.rem(15);
   font-weight: 400;
   line-height: 140%;
   letter-spacing: 0.2px;

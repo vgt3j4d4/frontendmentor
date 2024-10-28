@@ -1,21 +1,11 @@
-@use "sass:math";
-
 $fs-base: 16;
 $fs: $fs-base + px; 
-
-@function rem($pixel) {
-  @if math.is-unitless($pixel) {
-    @return math.div($pixel, $fs-base) + rem;
-  } @else {
-    @error 'Don\'t use units when using the rem() function; only numbers.';
-  }
-}
 
 $color-white: hsl(0, 0%, 100%);
 $color-slate-900: hsl(218, 44%, 22%);
 $color-slate-500: hsl(216, 15%, 48%);
 $color-slate-300: hsl(212, 45%, 89%);
 
-$spacing-500: rem(40);
-$spacing-300: rem(24);
-$spacing-200: rem(16);
+$spacing-500: 40;
+$spacing-300: 24;
+$spacing-200: 16;
