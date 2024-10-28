@@ -1,65 +1,60 @@
-@import "reset";
-@import "variables";
-@import "fonts";
+@use "reset";
+
+@use "variables" as v;
+@use "functions" as fn;
+@use "typography" as ty;
 
 body {
-  background-color: $color-slate-300;
-  font-family: "Outfit", sans-serif;
-  font-size: $fs;
-}
-
-main {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100dvh;
+  background-color: v.$color-slate-300;
+  font-family: "Outfit", sans-serif, system-ui;
+  font-size: v.$fs;
 }
 
 .container {
-  max-width: rem(320);
+  max-width: fn.rem(320);
 }
 
 .qr-code {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: $spacing-300;
-  padding: $spacing-200;
-  padding-bottom: $spacing-500;
+  gap: fn.rem(v.$spacing-300);
+  padding: fn.rem(v.$spacing-200);
+  padding-bottom: fn.rem(v.$spacing-500);
   border-radius: 20px;
-  background-color: $color-white;
+  background-color: v.$color-white;
 
-  &__display {
+  &__img {
+    display: block;
+    width: 100%;
+    height: 100%;
     border-radius: 10px;
-    overflow: hidden;
-
-    img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
+    object-fit: contain;
   }
 
-  &__description {
+  &__text {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: $spacing-200;
+    gap: fn.rem(v.$spacing-200);
     text-align: center;
+  }
 
-    .title {
-      @include text-preset-1;
-      color: $color-slate-900;
-      margin: 0 $spacing-200;
-      margin-top: 0;
-    }
+  &__title {
+    color: v.$color-slate-900;
+    margin: 0 fn.rem(v.$spacing-200);
+    margin-top: 0;
+    @include ty.text-preset-1;
+  }
 
-    .summary {
-      @include text-preset-2;
-      color: $color-slate-500;
-      padding: 0 $spacing-200;
-      margin: 0;
-    }
+  &__summary {
+    color: v.$color-slate-500;
+    padding: 0 fn.rem(v.$spacing-200);
+    margin: 0;
+    @include ty.text-preset-2;
   }
 }
