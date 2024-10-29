@@ -1,5 +1,6 @@
-@use "variables";
-@use "functions";
+@use "variables" as v;
+@use "functions" as fn;
+@use "typography" as ty;
 
 .number {
   display: flex;
@@ -10,8 +11,8 @@
     /** Vertical line */
     display: block;
     width: 1px;
-    height: rem($number-line-height);
-    border-right: 1px solid $color-slate-300;
+    height: fn.rem(v.$number-line-height);
+    border-right: 1px solid v.$color-slate-300;
   }
 
   span:last-child {
@@ -19,13 +20,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: rem($number-width);
-    height: rem($number-height);
-    border: 1px solid $color-slate-300;
+    width: fn.rem(v.$number-width);
+    height: fn.rem(v.$number-height);
+    border: 1px solid v.$color-slate-300;
     border-radius: 50%;
-    color: $color-slate-600;
-    background-color: $color-white;
-    @include text-preset-5;
-    font-size: rem($fs-text-preset-5-desktop);
+    color: v.$color-slate-600;
+    background-color: v.$color-white;
+    @include ty.text-preset-5;
+    font-size: fn.rem(v.$fs-text-preset-5-desktop);
   }
 }

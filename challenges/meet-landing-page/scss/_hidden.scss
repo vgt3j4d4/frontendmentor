@@ -1,19 +1,19 @@
-@use "variables";
-@use "functions";
+@use "variables" as v;
+@use "functions" as fn;
 
-@media (width < rem($breakpoint-tablet)) {
+@media (width < fn.rem(v.$breakpoint-tablet)) {
   .hidden-mobile {
     display: none;
   }
 }
 
-@media ((width >= rem($breakpoint-tablet)) and (width < rem($breakpoint-desktop))) {
+@media ((width >= fn.rem(v.$breakpoint-tablet)) and (width < fn.rem(v.$breakpoint-desktop))) {
   .hidden-tablet {
     display: none;
   }
 }
 
-@media (width >= rem($breakpoint-desktop)) {
+@media (width >= fn.rem(v.$breakpoint-desktop)) {
   .hidden-desktop {
     display: none;
   }

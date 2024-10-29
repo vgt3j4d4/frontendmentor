@@ -1,39 +1,39 @@
-@import "variables";
-@import "functions";
-@import "fonts";
+@use "variables" as v;
+@use "functions" as fn;
+@use "typography" as ty;
 
 .btn {
   display: inline-block;
-  padding: rem(16) rem(40);
-  color: $color-white;
+  padding: fn.rem(16) fn.rem(40);
+  color: v.$color-white;
   border: 0;
   border-radius: 29px;
   border-color: transparent;
-  @include text-preset-5;
-  font-size: rem($fs-text-preset-5-desktop);
+  @include ty.text-preset-5;
+  font-size: fn.rem(v.$fs-text-preset-5-desktop);
   text-wrap: nowrap;
 
   &-blue {
-    background-color: $color-cyan-600;
+    background-color: v.$color-cyan-600;
 
     &:hover {
-      background-color: $color-btn-blue-hover;
+      background-color: v.$color-btn-blue-hover;
     }
 
     em {
-      color: $color-cyan-300;
+      color: v.$color-cyan-300;
     }
   }
 
   &-purple {
-    background-color: $color-purple-600;
+    background-color: v.$color-purple-600;
 
     &:hover {
-      background-color: $color-btn-purple-hover;
+      background-color: v.$color-btn-purple-hover;
     }
 
     em {
-      color: $color-purple-300;
+      color: v.$color-purple-300;
     }
   }
 }
@@ -42,5 +42,5 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: rem(16);
+  gap: fn.rem(16);
 }

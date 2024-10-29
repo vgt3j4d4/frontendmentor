@@ -1,0 +1,11 @@
+@use "variables" as v;
+@use "functions" as fn;
+
+@media (width >= fn.rem(v.$breakpoint-mobile)) {
+  .hero {
+    &__content {
+      padding-left: fn.rem(35);
+      padding-right: fn.rem(35);
+    }
+  }
+}

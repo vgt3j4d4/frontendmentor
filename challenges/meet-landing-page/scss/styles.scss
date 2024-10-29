@@ -1,22 +1,26 @@
 @use "sass:math";
 
-@import "reset";
-@import "fonts";
-@import "variables";
-@import "functions";
-@import "buttons";
-@import "number";
-@import "hidden";
+@use "reset";
+@use "hidden";
+@use "buttons";
+@use "number";
+@use "breakpoints";
+
+@use "variables" as v;
+@use "functions" as fn;
+@use "typography" as ty;
 
 body {
-  padding-top: rem(80);
+  padding-top: fn.rem(80);
   font-family: "Red Hat Display", sans-serif, system-ui;
-  font-size: $fs;
+  font-size: v.$fs;
   text-align: center;
 }
 
-.navbar > * {
-  display: block;
+.navbar {
+  &__item {
+    display: block;
+  }
 }
 
 main {
@@ -28,18 +32,18 @@ main {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding-top: rem(64);
+  padding-top: fn.rem(64);
 
   &__image-mobile {
-    --min-width: #{rem(433)};
-    --max-width: #{rem(820)};
-    --min-height: #{rem(160)};
-    --max-height: #{rem(303)};
+    --min-width: #{fn.rem(433)};
+    --max-width: #{fn.rem(820)};
+    --min-height: #{fn.rem(160)};
+    --max-height: #{fn.rem(303)};
 
     width: 100%;
     height: clamp(
       var(--min-height),
-      var(--min-height) + (100vw - rem($breakpoint-mobile)),
+      var(--min-height) + (100vw - fn.rem(v.$breakpoint-mobile)),
       var(--max-height)
     );
     background: url("../images/tablet/image-hero.png");
@@ -54,33 +58,34 @@ main {
   }
 
   &__content {
-    --h1-fs: #{rem($fs-text-preset-1-mobile)};
-    --p-fs: #{rem($fs-text-preset-4-tablet)};
+    --h1-fs: #{fn.rem(v.$fs-text-preset-1-mobile)};
+    --p-fs: #{fn.rem(v.$fs-text-preset-4-tablet)};
 
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: rem(24);
-    max-width: rem(480); // figma says rem(448.3)
-    padding: rem(48) rem(35) rem(32) rem(35);
+    gap: fn.rem(24);
+    max-width: fn.rem(480); // figma says fn.rem(448.3)
+    padding-top: fn.rem(48);
+    padding-bottom: fn.rem(32);
+  }
 
-    h1 {
-      max-width: 10ch;
-      color: $color-slate-900;
-      @include text-preset-1;
-      font-size: var(--h1-fs);
-    }
+  &__title {
+    max-width: 10ch;
+    color: v.$color-slate-900;
+    @include ty.text-preset-1;
+    font-size: var(--h1-fs);
+  }
 
-    p {
-      color: $color-slate-600;
-      @include text-preset-4;
-      font-size: var(--p-fs);
-    }
+  &__description {
+    color: v.$color-slate-600;
+    @include ty.text-preset-4;
+    font-size: var(--p-fs);
+  }
 
-    .btn-group {
-      padding: 0 rem(56);
-      flex-wrap: wrap;
-    }
+  &__buttons {
+    padding: 0 fn.rem(56);
+    flex-wrap: wrap;
   }
 }
 
@@ -88,8 +93,8 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: rem(32);
-  padding-bottom: rem(64);
+  padding: fn.rem(32);
+  padding-bottom: fn.rem(64);
 
   &__image-collage {
     display: grid;
@@ -97,60 +102,60 @@ main {
     grid-template-rows: repeat(2, 1fr);
     align-content: stretch;
     justify-items: center;
-    gap: rem(16);
-    max-width: rem(1120);
-    padding: rem(64) 0;
+    gap: fn.rem(16);
+    max-width: fn.rem(1120);
+    padding: fn.rem(64) 0;
 
     img {
       width: 100%;
-      min-width: rem(147.5);
+      min-width: fn.rem(147.5);
       height: 100%;
-      min-height: rem(144);
+      min-height: fn.rem(144);
       object-fit: cover;
-      border-radius: rem(8);
+      border-radius: fn.rem(8);
     }
   }
 
   &__text {
-    --h2-fs: #{rem($fs-text-preset-2-mobile)};
-    --p-fs: #{rem($fs-text-preset-3-mobile)};
+    --h2-fs: #{fn.rem(v.$fs-text-preset-2-mobile)};
+    --p-fs: #{fn.rem(v.$fs-text-preset-3-mobile)};
 
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: rem(504);
+    max-width: fn.rem(504);
 
     h2 {
-      padding-bottom: rem(32);
-      @include text-preset-2;
+      padding-bottom: fn.rem(32);
+      @include ty.text-preset-2;
       font-size: var(--h2-fs);
-      color: $color-slate-900;
+      color: v.$color-slate-900;
 
       em {
         display: block;
-        padding-bottom: rem(16);
-        @include text-preset-3;
+        padding-bottom: fn.rem(16);
+        @include ty.text-preset-3;
         font-size: var(--p-fs);
         text-transform: uppercase;
-        color: $color-cyan-600;
+        color: v.$color-cyan-600;
       }
     }
 
     p {
-      @include text-preset-4;
-      font-size: rem($fs-text-preset-4-tablet);
-      color: $color-slate-600;
+      @include ty.text-preset-4;
+      font-size: fn.rem(v.$fs-text-preset-4-tablet);
+      color: v.$color-slate-600;
     }
   }
 }
 
 .cta-footer {
   --image-footer: #{url("../images/mobile/image-footer.jpg")};
-  --h2-fs: #{rem($fs-text-preset-2-mobile)};
-  --p-fs: #{rem($fs-text-preset-4-tablet)};
+  --h2-fs: #{fn.rem(v.$fs-text-preset-2-mobile)};
+  --p-fs: #{fn.rem(v.$fs-text-preset-4-tablet)};
 
   width: 100%;
-  color: $color-white;
+  color: v.$color-white;
   background: var(--image-footer);
   background-repeat: no-repeat;
   background-size: cover;
@@ -160,20 +165,20 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: rem(24);
-    margin-top: -#{rem(math.div($number-height, 2))};
-    padding: rem(64) rem(32);
-    background-color: $color-cta-background;
+    gap: fn.rem(24);
+    margin-top: -#{fn.rem(math.div(v.$number-height, 2))};
+    padding: fn.rem(64) fn.rem(32);
+    background-color: v.$color-cta-background;
 
     h2 {
-      @include text-preset-2;
+      @include ty.text-preset-2;
       font-size: var(--h2-fs);
     }
 
     p {
-      min-width: rem(311);
-      max-width: rem(504);
-      @include text-preset-4;
+      min-width: fn.rem(311);
+      max-width: fn.rem(504);
+      @include ty.text-preset-4;
       font-size: var(--p-fs);
     }
   }
