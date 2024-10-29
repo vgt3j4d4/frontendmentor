@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Design preview for the Article preview component coding challenge",
   "scripts": {
-    "dist": "npx copyfiles index.html css/* images/* fonts/* js/* dist"
+    "dist": "npx copyfiles index.html css/*.css images/* fonts/* js/* dist"
   },
   "keywords": [],
   "author": "",

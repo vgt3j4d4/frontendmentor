@@ -4,7 +4,7 @@
     "live-server": "live-server --port=5500 --no-browser",
     "tailwindcss": "tailwindcss -i ./css/main.css -o ./css/styles.css --watch",
     "dev": "concurrently --kill-others \"npm run tailwindcss\" \"npm run live-server\"",
-    "dist": "npx copyfiles index.html css/styles.css images/* fonts/* js/* data.json dist"
+    "dist": "npx copyfiles index.html css/styles.css images/*.css fonts/* js/* data.json dist"
   },
   "keywords": [],
   "author": "",
