@@ -1,0 +1,2 @@
+- [x] Create tip-calculator-app challenge folder using nextjs
+- [] Apply BEM methodology the right way in meet-landing-page project (avoid nesting classes) 
