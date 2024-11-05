@@ -57,7 +57,7 @@ function minimizeCss(challenges) {
   challenges.map((name) => {
     let cssFolder = join(__dirname, name, "css");
     if (!fs.existsSync(cssFolder) || !fs.statSync(cssFolder).isDirectory()) {
-      log(Chalk.red(`  Error: CSS folder not found for ${cssFolder}`));
+      log(Chalk.yellow(`  Warning: CSS folder not found for ${cssFolder}`));
       return;
     }
 
