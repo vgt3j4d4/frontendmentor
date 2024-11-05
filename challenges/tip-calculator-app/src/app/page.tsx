@@ -6,7 +6,7 @@ export default function Home() {
     <>
       <header className='header pt-12 pb-10 lg:pt-40 lg:pb-20'>
         <Image
-          src={"/images/logo.svg"}
+          src={"images/logo.svg"}
           alt='Splitter logo'
           width={86.66}
           height={53.14}

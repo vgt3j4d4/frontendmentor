@@ -18,7 +18,7 @@ export default function Params() {
         </label>
         <NumberInput
           id='bill'
-          className='bg-[url("/images/icon-dollar.svg")] bg-[length:11px_17px] bg-left_20-center outline-yellow-500'
+          className='bg-[length:11px_17px] bg-left_20-center outline-yellow-500'
           placeholder='0'
           value={params.bill + "" || ""}
           autofocus={true}
@@ -59,7 +59,8 @@ export default function Params() {
         </div>
         <NumberInput
           id='number-of-people'
-          className={`bg-[url("/images/icon-person.svg")] bg-[length:13px_16px] bg-left_20-center ${
+          icon='person'
+          className={`bg-[length:13px_16px] bg-left_20-center ${
             numberOfPeopleTouched.current && params.numberOfPeople === 0
               ? "outline-[#E17052]"
               : "outline-yellow-500"

@@ -12,6 +12,10 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      backgroundImage: {
+        "image-dollar": "url('/images/icon-dollar.svg')",
+        "image-person": "url('/images/icon-person.svg')"
+      },
       backgroundPosition: {
         "left_20-center": "left 20px center",
       },
