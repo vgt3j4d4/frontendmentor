@@ -17,7 +17,6 @@ This uses a simple Node.js code to generate challenges folders inside submission
 9. Social Links Profile
 10. Testimonials Grid Section
 11. Time Tracking Dashboard
-12. Tip Calculator App
 
 ## How to use
 
