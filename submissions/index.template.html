@@ -16,11 +16,13 @@
     </header>
     <main>
       <ul>
-        {{#each urls}}
+        {{#each challenges}}
         <li>
-          <a href="/{{this.url}}" class="contrast" target="_blank"
-            >{{this.label}}</a
-          >
+          {{#if this.isExternal}}
+          <a href="{{this.url}}" class="contrast" target="_blank">{{this.displayName}}</a>
+          {{else}}
+          <a href="/{{this.url}}" class="contrast" target="_blank">{{this.displayName}}</a>
+          {{/if}}
         </li>
         {{/each}}
       </ul>

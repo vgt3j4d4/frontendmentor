@@ -7,8 +7,8 @@ const Chalk = require("chalk");
 const CleanCSS = require("clean-css");
 const UglifyJS = require("uglify-js");
 
-const log = console.log;
-const CHALLENGES_PATH = "../challenges";
+const PARENT_PATH = path.resolve(__dirname, "..");
+const CHALLENGES_PATH = join(PARENT_PATH, "challenges");
 const UGLIFY_OPTIONS = {
   toplevel: true,
   output: {
@@ -16,8 +16,19 @@ const UGLIFY_OPTIONS = {
     preamble: "/* uglified */",
   },
 };
-const PARENT_PATH = path.resolve(__dirname, "..");
-const SELF_BUILDING_CHALLENGES = ["tip-calculator-app"];
+const SELF_BUILDING_CHALLENGES = [
+  {
+    name: "tip-calculator-app",
+    displayName: "Tip Calculator App",
+    url: "https://chimerical-froyo-6a614d.netlify.app/",
+    isExternal: true,
+  },
+];
+const SELF_BUILDING_CHALLENGES_NAMES = SELF_BUILDING_CHALLENGES.map(
+  (challenge) => challenge.name
+);
+
+const log = console.log;
 
 Handlebars.registerHelper("inc", function (value, _options) {
   return parseInt(value) + 1;
@@ -46,8 +57,8 @@ function build(challenges) {
 }
 
 function removePrevious(challenges) {
-  challenges.map(({ name }) => {
-    let folder = join(__dirname, name);
+  challenges.map(({ path }) => {
+    let folder = join(__dirname, path);
     logInfo(`  Removing ${folder}`);
     try {
       fs.rmSync(folder, { recursive: true, force: true });
@@ -114,35 +125,23 @@ function uglifyJS(challenges) {
 }
 
 function generateHtml(challenges) {
-  const urls = challenges.map(({ name, url }) => {
-    return {
-      label: name,
-      url: url,
-    };
-  });
   const indexTemplate = fs.readFileSync(
     join(__dirname, "index.template.html"),
     "utf8"
   );
   Handlebars.parse(indexTemplate);
-  const content = Handlebars.compile(indexTemplate)({ urls });
+  const content = Handlebars.compile(indexTemplate)({ challenges });
   fs.writeFileSync(join(__dirname, "index.html"), content);
   logInfo("Done");
 }
 
 function updateReadMe(challenges) {
-  const urls = challenges.map(({ name, url }) => {
-    return {
-      label: name,
-      url: url,
-    };
-  });
   const readMeTemplate = fs.readFileSync(
     join(PARENT_PATH, "README.template.md"),
     "utf8"
   );
   Handlebars.parse(readMeTemplate);
-  const content = Handlebars.compile(readMeTemplate)({ urls });
+  const content = Handlebars.compile(readMeTemplate)({ challenges });
   fs.writeFileSync(join(PARENT_PATH, "README.md"), content);
   logInfo("Done");
 }
@@ -157,15 +156,17 @@ function updateReadMe(challenges) {
     // Ensure path has package.json
     if (!fs.existsSync(join(path, "package.json"))) return;
     // Skip self-building challenges
-    if (SELF_BUILDING_CHALLENGES.includes(folder.name)) return;
+    if (SELF_BUILDING_CHALLENGES_NAMES.includes(folder.name)) return;
 
+    const displayName = folder.name
+      .replace(/\-/g, " ")
+      .split(" ")
+      .map((word) => word[0].toUpperCase() + word.slice(1))
+      .join(" ");
     challenges.push({
-      path: path,
-      name: folder.name
-        .replace(/\-/g, " ")
-        .split(" ")
-        .map((word) => word[0].toUpperCase() + word.slice(1))
-        .join(" "),
+      name: folder.name,
+      displayName,
+      path,
       url: folder.name,
     });
   });
@@ -174,6 +175,7 @@ function updateReadMe(challenges) {
     logError("No challenges found");
     return;
   }
+  const allChallenges = [...challenges, ...SELF_BUILDING_CHALLENGES];
 
   log(Chalk.cyan("==================="));
   log(Chalk.cyan("Building challenges"));
@@ -203,10 +205,10 @@ function updateReadMe(challenges) {
   log(Chalk.cyan("====================="));
   log(Chalk.cyan("Generating index.html"));
   log(Chalk.cyan("====================="));
-  generateHtml(challenges);
+  generateHtml(allChallenges);
 
   log(Chalk.cyan("====================="));
   log(Chalk.cyan("Update README.md file"));
   log(Chalk.cyan("====================="));
-  updateReadMe(challenges);
+  updateReadMe(allChallenges);
 })();

@@ -6,8 +6,8 @@ This uses a simple Node.js code to generate challenges folders inside submission
 
 ## Challenges
 
-{{#each urls}}
-{{inc @index}}. {{this.label}}
+{{#each challenges}}
+{{inc @index}}. {{this.displayName}}
 {{/each}}
 
 ## How to use
