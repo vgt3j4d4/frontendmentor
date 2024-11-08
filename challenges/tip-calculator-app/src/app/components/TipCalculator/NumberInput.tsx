@@ -1,8 +1,10 @@
-import { twMerge } from "tailwind-merge";
+import { DECIMAL_PLACES } from "@/app/constants";
+import { useMemo } from "react";
+
+const INVALID_NUMBER_KEYS = ["+", "-"];
 
 interface NumberInputProps {
   id?: string;
-  icon?: "dollar" | "person";
   value: string;
   decimalPlaces?: number;
   placeholder?: string;
@@ -13,46 +15,61 @@ interface NumberInputProps {
 
 export default function NumberInput({
   id,
-  icon = "dollar",
   value,
-  decimalPlaces = 2,
+  decimalPlaces = DECIMAL_PLACES,
   placeholder = "",
   className = "",
   autofocus = false,
   onChange,
 }: NumberInputProps) {
+  const validationRegex = useMemo(() => {
+    return decimalPlaces && decimalPlaces !== 0
+      ? new RegExp(`^(?!0)\\d+(\\.\\d{1,${decimalPlaces}})?$`)
+      : new RegExp(`^[1-9]+\\d*$`);
+  }, [decimalPlaces]);
   const isEmpty = !value || value === "0";
   const displayValue = isEmpty ? "" : value;
-  const iconClassName =
-    icon === "dollar" ? "bg-image-dollar" : "bg-image-person";
 
   return (
     <input
       id={id}
-      type='tel'
-      pattern={`^(\\[1-9]+(\\.\\d{1,${decimalPlaces}})?)$`}
-      className={
-        twMerge(`
-        w-full
+      type='number'
+      className={`w-full
         py-2 pl-9 pr-4
         rounded-[5px] 
         bg-[#F3F9FA] bg-no-repeat
         text-2xl font-bold text-[#00474B] text-right
         outline-8
-        ${className || ""}
-      `) + ` ${iconClassName}`
-      }
-      placeholder={placeholder}
+        ${className}
+        `}
       value={displayValue}
+      placeholder={placeholder}
       autoFocus={autofocus}
+      onKeyDown={(e) => {
+        // For some reason, type="number" allows these keys
+        if (INVALID_NUMBER_KEYS.includes(e.key)) {
+          e.preventDefault();
+          return;
+        }
+        // If decimal places are 0, prevent user from adding a decimal point
+        if (e.key === "." && decimalPlaces === 0) {
+          e.preventDefault();
+          return;
+        }
+      }}
       onChange={(e) => {
         const value = e.target.value || "";
-        if (value === "") {
-          // allow empty value
+        const parsedValue = parseFloat(value);
+        if (value === "" && isNaN(parsedValue)) {
+          // Catching empty and NaN values
           onChange(0);
           return;
         }
-        onChange(parseFloat(value));
+        if (value.endsWith(".") && decimalPlaces !== 0) {
+          // Allow user to add a decimal point if decimal places are not 0
+          return;
+        }
+        if (validationRegex.test(value)) onChange(parsedValue);
       }}
     />
   );

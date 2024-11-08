@@ -1,9 +1,6 @@
-"use client";
-
 const VALID_PERCENTAGE_REGEX = "^\\d|[1-9]\\d+$";
 
 import { useState } from "react";
-import { twMerge } from "tailwind-merge";
 
 function isValidPercentage(value: string) {
   return value.match(new RegExp(VALID_PERCENTAGE_REGEX)) != null;
@@ -25,7 +22,6 @@ export default function PercentageInput({
   onChange,
 }: PercentageInputProps) {
   const [hasFocus, setHasFocus] = useState(false);
-
   const isEmpty = !value || value === "0";
   const displayValue = isEmpty ? "" : value + (hasFocus ? "" : "%");
 
@@ -34,8 +30,7 @@ export default function PercentageInput({
       id={id}
       type='tel'
       pattern={VALID_PERCENTAGE_REGEX}
-      className={twMerge(`
-        ${hasFocus ? "pr-3" : ""}
+      className={`${hasFocus ? "pr-3" : ""}
         rounded-[5px]
         ${isEmpty ? "bg-[#F3F9FA]" : "bg-[#26C2AE]"}
         focus:bg-white
@@ -46,15 +41,11 @@ export default function PercentageInput({
         placeholder-[#547878] 
         caret-[#26C2AE]
         ${className || ""}
-      `)}
+      `}
       placeholder={placeholder}
       value={displayValue}
-      onFocus={() => {
-        setHasFocus(true);
-      }}
-      onBlur={() => {
-        setHasFocus(false);
-      }}
+      onFocus={() => setHasFocus(true)}
+      onBlur={() => setHasFocus(false)}
       onChange={(e) => {
         const value = e.target.value || "";
         if (value === "") {

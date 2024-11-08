@@ -14,7 +14,10 @@ function Results({ currencySymbol = "$" }: TipCalculatorResultsProps) {
     <div className='flex flex-col gap-6 w-full lg:w-[413px] p-6 lg:p-10 bg-[#00474B] rounded-2xl'>
       <div className='flex justify-between items-center flex-wrap'>
         <span>
-          Tip Amount<em className='block text-[#7F9D9F] text-sm'>/ person</em>
+          Tip Amount
+          <em className='block text-[#7F9D9F] text-sm font-bold not-italic'>
+            / person
+          </em>
         </span>
         <span className='text-3xl lg:text-5xl font-bold text-[#26C2AE]'>
           {currencySymbol}
@@ -23,7 +26,10 @@ function Results({ currencySymbol = "$" }: TipCalculatorResultsProps) {
       </div>
       <div className='flex justify-between items-center flex-wrap mt-5'>
         <span>
-          Total<em className='block text-[#7F9D9F] text-sm'>/ person</em>
+          Total
+          <em className='block text-[#7F9D9F] text-sm font-bold not-italic'>
+            / person
+          </em>
         </span>
         <span className='text-3xl lg:text-5xl font-bold text-[#26C2AE]'>
           {currencySymbol}

@@ -10,15 +10,12 @@ export default function Params() {
   return (
     <form action='#' className='lg:w-[379px]' noValidate={true}>
       <div>
-        <label
-          className='block mb-4 text-lg font-bold text-[#5E7A7D]'
-          htmlFor='bill'
-        >
+        <label className='block mb-2 font-bold text-[#5E7A7D]' htmlFor='bill'>
           Bill
         </label>
         <NumberInput
           id='bill'
-          className='bg-[length:11px_17px] bg-left_20-center outline-yellow-500'
+          className='bg-image-dollar bg-[length:11px_17px] bg-left_20-center outline-yellow-500'
           placeholder='0'
           value={params.bill + "" || ""}
           autofocus={true}
@@ -30,14 +27,11 @@ export default function Params() {
           }}
         ></NumberInput>
       </div>
-      <div className='mt-8'>
-        <label
-          className='block mb-4 text-lg font-bold text-[#5E7A7D]'
-          htmlFor='tip'
-        >
+      <div className='mt-10'>
+        <label className='block mb-4 font-bold text-[#5E7A7D]' htmlFor='tip'>
           Select Tip %
         </label>
-        <TipSelector></TipSelector>
+        <TipSelector />
       </div>
       <div className='mt-10'>
         <div className='flex items-center justify-between mb-2'>
@@ -59,14 +53,14 @@ export default function Params() {
         </div>
         <NumberInput
           id='number-of-people'
-          icon='person'
-          className={`bg-[length:13px_16px] bg-left_20-center ${
+          className={`bg-image-person bg-[length:13px_16px] bg-left_20-center ${
             numberOfPeopleTouched.current && params.numberOfPeople === 0
               ? "outline-[#E17052]"
               : "outline-yellow-500"
           }`}
           placeholder='0'
           value={params.numberOfPeople + "" || ""}
+          decimalPlaces={0}
           onChange={(value) => {
             numberOfPeopleTouched.current = true;
             setParams({
