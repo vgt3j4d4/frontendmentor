@@ -1,4 +1,5 @@
 import { TipCalculatorParams } from "@/app/contexts/TipCalculatorContext";
+import { useMemo } from "react";
 
 interface TipButtonProps {
   value: number;
@@ -17,11 +18,15 @@ export default function TipButton({
   params,
   setParams,
 }: TipButtonProps) {
+  const isActive = useMemo(() => {
+    return !customPercentage && tipPercentage === value;
+  }, [customPercentage, tipPercentage, value]);
+
   return (
     <button
       type='button'
       className={`h-full px-4 py-2 bg-[#00474B] ${
-        !customPercentage && tipPercentage === value ? "bg-[#26C2AE]" : ""
+        isActive ? "bg-[#26C2AE]" : "hover:bg-[#9FE8DF]"
       }
         text-center text-white
         rounded-md
