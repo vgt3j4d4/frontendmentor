@@ -32,8 +32,8 @@ export default function TipButton({
       }
         text-center
         rounded-md
-        outline-8 outline-offset-2 outline-yellow-500
-        ring-offset-2 ring-yellow-500 focus:ring-2`}
+        outline-8 outline-offset-2 outline-[#26c2ae]
+        ring-offset-2 ring-[#26c2ae] focus:ring-2`}
       onClick={() => {
         setParams({
           ...params,

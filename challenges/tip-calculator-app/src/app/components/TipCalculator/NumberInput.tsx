@@ -40,8 +40,8 @@ export default function NumberInput({
         py-2 pl-9 pr-4
         rounded-[5px] 
         bg-[#F3F9FA] bg-no-repeat
-        text-2xl font-bold text-[#00474B] text-right
-        outline-8
+        text-2xl font-bold text-[#00474b] text-right
+        outline-8 outline-[#26c2ae]
         ${className}
         `}
       value={displayValue}

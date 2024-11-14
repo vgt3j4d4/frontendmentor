@@ -59,7 +59,8 @@ function Results({ currencySymbol = "$" }: TipCalculatorResultsProps) {
         bg-[#26C2AE] hover:bg-[#9FE8DF]
         text-xl text-[#00474B]
         font-bold uppercase
-        outline-8 outline-offset-2 outline-yellow-500
+        outline-8 outline-offset-2 outline-[#26c2ae]
+        ring-offset-2 ring-[#26c2ae]
         disabled:bg-[#0D686D] disabled:text-[#00474B]'
         disabled={results.total === 0}
         onClick={resetForm}

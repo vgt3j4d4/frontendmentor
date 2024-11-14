@@ -1,4 +1,4 @@
-- [ ] Match figma design
+- [x] Match figma design
 - [ ] Check if aria-live is working
-- [ ] Revisit "Number of People" validation
-- [ ] Add Formik
+- [x] Revisit "Number of People" validation
+- [x] ~~Add Formik~~
