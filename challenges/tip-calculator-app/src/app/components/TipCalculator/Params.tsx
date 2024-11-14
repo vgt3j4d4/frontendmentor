@@ -22,7 +22,7 @@ export default function Params() {
         </label>
         <NumberInput
           id='bill'
-          className='bg-image-dollar bg-[length:11px_17px] bg-left_20-center outline-yellow-500'
+          className='bg-image-dollar bg-[length:11px_17px] bg-left_20-center outline-[#26c2ae]'
           placeholder='0'
           value={params.bill + "" || ""}
           autofocus={true}
@@ -65,7 +65,7 @@ export default function Params() {
           className={`bg-image-person bg-[length:13px_16px] bg-left_20-center ${
             numberOfPeopleTouched.current && params.numberOfPeople === 0
               ? "outline-[#e17052]"
-              : "outline-yellow-500"
+              : "outline-[#26c2ae]"
           }`}
           placeholder='0'
           value={params.numberOfPeople + "" || ""}

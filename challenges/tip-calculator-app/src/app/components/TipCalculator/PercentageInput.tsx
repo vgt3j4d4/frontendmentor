@@ -28,13 +28,13 @@ export default function PercentageInput({
     return `
         rounded-[5px]
         focus:bg-white focus:text-right
-        outline-8 outline-[#26C2AE]
+        outline-8 outline-[#26c2ae]
         placeholder-[#547878] 
-        caret-[#26C2AE]
+        caret-[#26c2ae]
         ${
           isEmpty
-            ? `pr-4 ${hasFocus ? "" : "lg:pr-0"} bg-[#F3F9FA] text-right`
-            : `${hasFocus ? "pr-4" : ""} bg-[#26C2AE] text-center`
+            ? `pr-4 ${hasFocus ? "" : "lg:pr-0"} bg-[#f3f9fa] text-right`
+            : `${hasFocus ? "pr-4" : ""} bg-[#26c2ae] text-center`
         } ${hasFocus ? "text-[#547878]" : ""}`;
   }, [isEmpty, hasFocus]);
 
