@@ -9,36 +9,53 @@ interface TipCalculatorResultsProps {
 
 function Results({ currencySymbol = "$" }: TipCalculatorResultsProps) {
   const { results, resetForm } = useContext(TipCalculatorContext);
+  const tipPerPerson = results.tipPerPerson || EMPTY_TIP_VALUE;
+  const total = results.total || EMPTY_TIP_VALUE;
 
   return (
-    <div className='flex flex-col gap-6 w-full lg:w-[413px] p-6 lg:p-10 bg-[#00474B] rounded-2xl'>
+    <div
+      className='flex flex-col gap-[20px] w-full lg:w-[413px] p-6 lg:p-10 bg-[#00474B] rounded-2xl'
+      aria-live='polite'
+    >
       <div className='flex justify-between items-center flex-wrap'>
-        <span>
+        <span className='font-bold'>
           Tip Amount
-          <em className='block text-[#7F9D9F] text-sm font-bold not-italic'>
+          <em
+            className='block text-[#7F9D9F] text-sm font-bold not-italic'
+            aria-label='per person'
+          >
             / person
           </em>
         </span>
-        <span className='text-3xl lg:text-5xl font-bold text-[#26C2AE]'>
+        <span
+          className='text-3xl lg:text-5xl font-bold text-[#26C2AE]'
+          aria-label={`${tipPerPerson} dollars`}
+        >
           {currencySymbol}
-          {results.tipPerPerson || EMPTY_TIP_VALUE}
+          {tipPerPerson}
         </span>
       </div>
       <div className='flex justify-between items-center flex-wrap mt-5'>
-        <span>
+        <span className='font-bold'>
           Total
-          <em className='block text-[#7F9D9F] text-sm font-bold not-italic'>
+          <em
+            className='block text-[#7F9D9F] text-sm font-bold not-italic'
+            aria-label='per person'
+          >
             / person
           </em>
         </span>
-        <span className='text-3xl lg:text-5xl font-bold text-[#26C2AE]'>
+        <span
+          className='text-3xl lg:text-5xl font-bold text-[#26C2AE]'
+          aria-label={`${total} dollars`}
+        >
           {currencySymbol}
-          {results.total || EMPTY_TIP_VALUE}
+          {total}
         </span>
       </div>
       <button
         type='button'
-        className='mt-8 lg:mt-auto py-2 rounded-md 
+        className='mt-8 lg:mt-auto py-[9px] rounded-md 
         bg-[#26C2AE] hover:bg-[#9FE8DF]
         text-xl text-[#00474B]
         font-bold uppercase

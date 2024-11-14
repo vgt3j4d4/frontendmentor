@@ -1,6 +1,6 @@
-const VALID_PERCENTAGE_REGEX = "^\\d|[1-9]\\d+$";
+import { useMemo, useState } from "react";
 
-import { useState } from "react";
+const VALID_PERCENTAGE_REGEX = "^\\d|[1-9]\\d+$";
 
 function isValidPercentage(value: string) {
   return value.match(new RegExp(VALID_PERCENTAGE_REGEX)) != null;
@@ -24,24 +24,26 @@ export default function PercentageInput({
   const [hasFocus, setHasFocus] = useState(false);
   const isEmpty = !value || value === "0";
   const displayValue = isEmpty ? "" : value + (hasFocus ? "" : "%");
+  const baseClassName = useMemo(() => {
+    return `
+        rounded-[5px]
+        focus:bg-white focus:text-right
+        outline-8 outline-[#26C2AE]
+        placeholder-[#547878] 
+        caret-[#26C2AE]
+        ${
+          isEmpty
+            ? `pr-4 ${hasFocus ? "" : "lg:pr-0"} bg-[#F3F9FA] text-right`
+            : `${hasFocus ? "pr-4" : ""} bg-[#26C2AE] text-center`
+        } ${hasFocus ? "text-[#547878]" : ""}`;
+  }, [isEmpty, hasFocus]);
 
   return (
     <input
       id={id}
       type='tel'
       pattern={VALID_PERCENTAGE_REGEX}
-      className={`${hasFocus ? "pr-3" : ""}
-        rounded-[5px]
-        ${isEmpty ? "bg-[#F3F9FA]" : "bg-[#26C2AE]"}
-        focus:bg-white
-        ${hasFocus ? "text-[#547878]" : ""}
-        ${isEmpty ? "text-right" : "text-center"}
-        focus:text-right
-        outline-8 outline-[#26C2AE]
-        placeholder-[#547878] 
-        caret-[#26C2AE]
-        ${className || ""}
-      `}
+      className={`${baseClassName} ${className || ""}`}
       placeholder={placeholder}
       value={displayValue}
       onFocus={() => setHasFocus(true)}

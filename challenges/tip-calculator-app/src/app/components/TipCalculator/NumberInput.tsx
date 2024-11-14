@@ -11,6 +11,7 @@ interface NumberInputProps {
   className?: string;
   autofocus?: boolean;
   onChange: (value: number) => void;
+  onBlur?: () => void;
 }
 
 export default function NumberInput({
@@ -21,6 +22,7 @@ export default function NumberInput({
   className = "",
   autofocus = false,
   onChange,
+  onBlur = () => {},
 }: NumberInputProps) {
   const validationRegex = useMemo(() => {
     return decimalPlaces && decimalPlaces !== 0
@@ -71,6 +73,7 @@ export default function NumberInput({
         }
         if (validationRegex.test(value)) onChange(parsedValue);
       }}
+      onBlur={onBlur}
     />
   );
 }

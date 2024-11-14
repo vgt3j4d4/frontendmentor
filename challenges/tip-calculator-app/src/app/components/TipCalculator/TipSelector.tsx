@@ -30,7 +30,7 @@ export default function TipSelector() {
   const { params, setParams } = useContext(TipCalculatorContext);
 
   return (
-    <div className='grid grid-cols-3 gap-y-3 gap-x-4 text-2xl font-bold'>
+    <div className='grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-y-4 lg:gap-x-[14px] lg:min-h-[7rem] text-2xl font-bold'>
       {TIP_PERCENTAGES.map(({ value, displayValue }) => (
         <TipButton
           key={value}

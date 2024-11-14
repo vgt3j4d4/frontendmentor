@@ -25,10 +25,12 @@ export default function TipButton({
   return (
     <button
       type='button'
-      className={`h-full px-4 py-2 bg-[#00474B] ${
-        isActive ? "bg-[#26C2AE]" : "hover:bg-[#9FE8DF]"
+      className={`px-4 py-2 bg-[#00474B] ${
+        isActive
+          ? "bg-[#26C2AE] text-[#00474B]"
+          : "hover:bg-[#9FE8DF] text-white"
       }
-        text-center text-white
+        text-center
         rounded-md
         outline-8 outline-offset-2 outline-yellow-500
         ring-offset-2 ring-yellow-500 focus:ring-2`}

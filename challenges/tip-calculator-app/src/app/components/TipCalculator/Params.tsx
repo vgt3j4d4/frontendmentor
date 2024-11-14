@@ -8,9 +8,16 @@ export default function Params() {
   const numberOfPeopleTouched = useRef(false);
 
   return (
-    <form action='#' className='lg:w-[379px]' noValidate={true}>
+    <form
+      action='#'
+      className='flex flex-col gap-8 lg:w-[379px] px-2 lg:px-0'
+      noValidate={true}
+    >
       <div>
-        <label className='block mb-2 font-bold text-[#5E7A7D]' htmlFor='bill'>
+        <label
+          className='block mb-[6px] font-bold text-[#5E7A7D]'
+          htmlFor='bill'
+        >
           Bill
         </label>
         <NumberInput
@@ -27,13 +34,15 @@ export default function Params() {
           }}
         ></NumberInput>
       </div>
-      <div className='mt-10'>
+
+      <div>
         <label className='block mb-4 font-bold text-[#5E7A7D]' htmlFor='tip'>
           Select Tip %
         </label>
         <TipSelector />
       </div>
-      <div className='mt-10'>
+
+      <div>
         <div className='flex items-center justify-between mb-2'>
           <label
             className='block font-bold text-[#5E7A7D]'
