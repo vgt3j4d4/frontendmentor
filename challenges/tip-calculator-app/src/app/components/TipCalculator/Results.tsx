@@ -18,7 +18,7 @@ function Results({ currencySymbol = "$" }: TipCalculatorResultsProps) {
       aria-live='polite'
     >
       <div className='flex justify-between items-center flex-wrap'>
-        <span className='font-bold'>
+        <span className='font-bold text-white'>
           Tip Amount
           <em
             className='block text-[#7F9D9F] text-sm font-bold not-italic'
@@ -36,7 +36,7 @@ function Results({ currencySymbol = "$" }: TipCalculatorResultsProps) {
         </span>
       </div>
       <div className='flex justify-between items-center flex-wrap mt-5'>
-        <span className='font-bold'>
+        <span className='font-bold text-white'>
           Total
           <em
             className='block text-[#7F9D9F] text-sm font-bold not-italic'

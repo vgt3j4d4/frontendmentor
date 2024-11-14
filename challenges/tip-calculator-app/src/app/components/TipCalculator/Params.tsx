@@ -10,7 +10,7 @@ export default function Params() {
   return (
     <form
       action='#'
-      className='flex flex-col gap-8 lg:w-[379px] px-2 lg:px-0'
+      className='flex flex-col gap-8 lg:gap-10 lg:w-[379px] px-2 lg:px-0'
       noValidate={true}
     >
       <div>
