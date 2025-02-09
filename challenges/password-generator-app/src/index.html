@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Frontend Mentor | Password generator app</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+    content="Password generator app built with Angular v.19 and Tailwind CSS v.3 as a Frontend Mentor challenge.">
+  <link rel="icon" type="image/x-icon" href="./favicon-32x32.png">
+  <link href="./fonts/JetBrainsMono-Bold.ttf" type="font/ttf" rel="preload" as="font" crossorigin="anonymous">
+  <style>
+    /** Paths starting with ./ give me an error from [plugin angular-css-resource] */
+    /**   ✘ [ERROR] Could not resolve "icon-check.svg" [plugin angular-css-resource] */
+    /**   ✘ [ERROR] Could not resolve "./fonts/JetBrainsMono-Bold.ttf" [plugin angular-css-resource] */
+    /** Some background is found here: https://stackoverflow.com/questions/42802431/angular-2-load-css-background-image-from-assets-folder/65799235#65799235 */
+    @font-face {
+      font-family: "JetBrainsMono-Bold";
+      src: url("./fonts/JetBrainsMono-Bold.ttf");
+      font-display: swap;
+    }
+  
+    /** This is a hack to make the checkboxes work as tailwind expects them to */
+    input[type="checkbox"].checked\:bg-icon-check:checked {
+      background-image: url(./icon-check.svg);
+    }
+  </style>
+</head>
+
+<body>
+  <main class="w-full min-h-dvh flex flex-col justify-center items-center bg-very-dark-grey overflow-hidden">
+    <app-root></app-root>
+  </main>
+</body>
+
+</html>

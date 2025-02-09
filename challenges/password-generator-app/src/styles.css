@@ -1,0 +1,28 @@
+@import "@angular/cdk/a11y-prebuilt.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --red: #f64a4a;
+  --red-rgb: 246, 74, 74;
+  --orange: #fb7c58;
+  --yellow: #f8cd65;
+  --neon-green: #a4ffaf;
+  --almost-white: #e6e5ea;
+  --grey: #817d92;
+  --dark-grey: #24232c;
+  --very-dark-grey: #18171f;
+}
+
+body {
+  font-family: "JetBrainsMono-Bold", sans-serif, system-ui;
+  fill: currentColor; /* only for svg fill color, won't affect anything else */
+}
+
+/* just added for a11y purposes */
+*:focus {
+  outline: 2px solid var(--red);
+  outline-offset: 4px;
+}
