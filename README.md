@@ -11,14 +11,14 @@ This uses a simple Node.js code to generate challenges folders inside submission
 3. Four Card Feature Section
 4. Meet Landing Page
 5. Newsletter Sign Up
-6. Password Generator App
-7. Product Preview Card
-8. Qr Code Component
-9. Recipe Page
-10. Social Links Profile
-11. Testimonials Grid Section
-12. Time Tracking Dashboard
-13. Tip Calculator App
+6. Product Preview Card
+7. Qr Code Component
+8. Recipe Page
+9. Social Links Profile
+10. Testimonials Grid Section
+11. Time Tracking Dashboard
+12. Tip Calculator App
+13. Password Generator App
 
 ## How to use
 
