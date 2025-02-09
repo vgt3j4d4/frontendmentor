@@ -23,6 +23,12 @@ const SELF_BUILDING_CHALLENGES = [
     url: "https://chimerical-froyo-6a614d.netlify.app/",
     isExternal: true,
   },
+  {
+    name: "password-generator-app",
+    displayName: "Password Generator App",
+    url: "https://astounding-douhua-4315c7.netlify.app/",
+    isExternal: true,
+  },
 ];
 const SELF_BUILDING_CHALLENGES_NAMES = SELF_BUILDING_CHALLENGES.map(
   (challenge) => challenge.name
