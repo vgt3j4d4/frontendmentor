@@ -1,4 +1,4 @@
-@import "@angular/cdk/a11y-prebuilt.css";
+@import "@angular/cdk/a11y-prebuilt.css"; /* For a11y (used my Angular CDK's LiveAnnouncer) */ 
 
 @tailwind base;
 @tailwind components;

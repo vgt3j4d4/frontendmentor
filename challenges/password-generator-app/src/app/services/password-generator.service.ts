@@ -4,15 +4,15 @@ import { PasswordComplexityOption } from '../models/password-complexity';
 const DEFAULT_COMPLEXITY_OPTIONS: PasswordComplexityOption[] = [{
   id: 'uppercase',
   label: 'Include Uppercase Letters',
-  value: true
+  value: false
 }, {
   id: 'lowercase',
   label: 'Include Lowercase Letters',
-  value: true
+  value: false
 }, {
   id: 'numbers',
   label: 'Include Numbers',
-  value: true
+  value: false
 }, {
   id: 'symbols',
   label: 'Include Symbols',

@@ -8,17 +8,13 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './password-length-slider.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PasswordLengthSliderComponent implements OnChanges, AfterViewInit {
+export class PasswordLengthSliderComponent implements AfterViewInit {
 
   @Input() minLength: number = 0;
   @Input() maxLength: number = 20;
   @Output() lengthChange = new EventEmitter<number>();
   @ViewChild('slider') slider!: ElementRef<HTMLInputElement>;
   value: number = 0;
-
-  ngOnChanges() {
-    this.value = (this.minLength + this.maxLength) / 2;
-  }
 
   ngAfterViewInit(): void {
     const progress = this.calculateProgress(this.value);

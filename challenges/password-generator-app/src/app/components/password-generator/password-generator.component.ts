@@ -9,7 +9,7 @@ import { PasswordLengthSliderComponent } from '../password-length-slider/passwor
 
 const PASSWORD_MIN_LENGTH = 0;
 const PASSWORD_MAX_LENGTH = 20;
-const PASSWORD_DEFAULT_LENGTH = 10;
+const PASSWORD_DEFAULT_LENGTH = 0;
 
 interface PasswordCharacterLength {
   min: number;
@@ -44,8 +44,10 @@ export class PasswordGeneratorComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.maybeGeneratePassword();
-    this.updateComplexity();
+    if (this.characterLength.value) {
+      this.maybeGeneratePassword();
+      this.updateComplexity();
+    }
   }
 
   updateComplexity() {
