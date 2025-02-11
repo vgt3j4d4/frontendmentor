@@ -1,5 +1,6 @@
 import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, EventEmitter, HostListener, Input, OnChanges, Output, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import * as uuid from 'uuid';
 
 @Component({
   selector: 'app-password-length-slider',
@@ -15,6 +16,8 @@ export class PasswordLengthSliderComponent implements AfterViewInit {
   @Output() lengthChange = new EventEmitter<number>();
   @ViewChild('slider') slider!: ElementRef<HTMLInputElement>;
   value: number = 0;
+
+  inputId = `slider-${uuid.v4()}`;
 
   ngAfterViewInit(): void {
     const progress = this.calculateProgress(this.value);

@@ -23,6 +23,7 @@
     "a11y-prebuilt.css": "link:@angular/cdk/a11y-prebuilt.css",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
+    "uuid": "^11.0.5",
     "zone.js": "~0.15.0"
   },
   "devDependencies": {
