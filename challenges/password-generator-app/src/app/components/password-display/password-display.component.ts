@@ -25,9 +25,9 @@ export class PasswordDisplayComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes['password']) {
-      const passwordChanges = changes['password'];
-      if (passwordChanges.currentValue) {
+    const passwordChanges = changes['password'];
+    if (passwordChanges) {
+      if (passwordChanges.currentValue && passwordChanges.currentValue !== passwordChanges.previousValue) {
         this.liveAnnouncer.announce('A new password has been generated');
       } else {
         this.justCopied = false;
