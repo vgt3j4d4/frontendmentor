@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChange, SimpleChanges } from '@angular/core';
 import { Clipboard, ClipboardModule } from '@angular/cdk/clipboard';
 import { A11yModule, LiveAnnouncer } from '@angular/cdk/a11y';
+import { BehaviorSubject } from 'rxjs';
 
 
 const PASSWORD_PLACEHOLDER = 'P4$5W0rD!';
@@ -19,7 +20,7 @@ export class PasswordDisplayComponent implements OnChanges {
 
   placeholder: string = PASSWORD_PLACEHOLDER;
 
-  justCopied: boolean = false;
+  justCopied = new BehaviorSubject<Boolean>(false);
 
   constructor(private clipboardService: Clipboard, private liveAnnouncer: LiveAnnouncer) {
   }
@@ -30,7 +31,7 @@ export class PasswordDisplayComponent implements OnChanges {
       if (passwordChanges.currentValue && passwordChanges.currentValue !== passwordChanges.previousValue) {
         this.liveAnnouncer.announce('A new password has been generated');
       } else {
-        this.justCopied = false;
+        this.justCopied.next(false);
       }
     }
   }
@@ -38,7 +39,7 @@ export class PasswordDisplayComponent implements OnChanges {
   maybeCopyAndNotify() {
     if (this.password) {
       this.copyToClipboard();
-      this.justCopied = true;
+      this.justCopied.next(true);
     }
   }
 
